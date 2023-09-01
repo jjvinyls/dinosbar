@@ -1,174 +1,176 @@
 <template>
-	<BContainer id="menu" class="py-5">
-		<div class="text-center">
-			<h1 class="m-0 text-primary">Our Menu</h1>
-			<hr class="mb-4 bg-light" style="max-width: 100px;"/>
-		</div>
-
-		<ul class="menu-filter-list list-inline text-center">
-			<li
-				@click="filterMenu('all')"
-				:class="{ 'is-checked': currentTab == 'all' }"
-			>
-				All
-			</li>
-			<li
-				@click="filterMenu('bar-snack')"
-				:class="{ 'is-checked': currentTab == 'bar-snack' }"
-			>
-				Bar Snacks
-			</li>
-			<li
-				@click="filterMenu('wings')"
-				:class="{ 'is-checked': currentTab == 'wings' }"
-			>
-				Wings
-			</li>
-			<li
-				@click="filterMenu('burger')"
-				:class="{ 'is-checked': currentTab == 'burger' }"
-			>
-				Burgers
-			</li>
-			<li
-				@click="filterMenu('sandwich')"
-				:class="{ 'is-checked': currentTab == 'sandwich' }"
-			>
-				Sandwiches
-			</li>
-			<li
-				@click="filterMenu('salad')"
-				:class="{ 'is-checked': currentTab == 'salad' }"
-			>
-				Salads
-			</li>
-			<li
-				@click="filterMenu('entree')"
-				:class="{ 'is-checked': currentTab == 'entree' }"
-			>
-				Entrees
-			</li>
-		</ul>
-
+	<BContainer class="py-5">
 		<div v-if="loading" class="my-5">
-			<h1 class="text-primary text-center">Loading..</h1>
+			<h1 class="my-5 text-primary text-center">Loading..</h1>
 		</div>
 
-		<BRow v-if="!loading" class="menu-filter-items">
-			<BCol
-				v-for="(item, i) in filteredMenu" :key="i"
-				cols="12" sm="12" md="6" lg="6" xl="4"
-				class="border border-light py-4 start menu-item"
-				style="border-style: dotted !important;"
-			>
-				
-				<div class="menu-box clearfix">
-					<div class="thumb">
-						<Viewer
-							:options="{ title: false, transition: false }"
-							class="text-center"
-						>
-							<!-- Thumbnail -->
-							<img
-								:src="item.img && item != '' ? item.img : placeholderImg"
-								width="70"
-								class="d-none d-sm-block"
-							/>
-						</Viewer>
-					</div>
-
-					<div class="menu-content">
-						<h4 class="mb-3 text-primary">
-							<a @click="viewProduct(i)" class="text-primary">
-								{{ item.name }}
-							</a>
-							<span>
+		<div v-if="!loading" id="menu">
+			<div class="text-center">
+				<h1 class="m-0 text-primary">Our Menu</h1>
+				<hr class="mb-4 bg-light" style="max-width: 100px;"/>
+			</div>
+	
+			<ul class="menu-filter-list list-inline text-center">
+				<li
+					@click="filterMenu('all')"
+					:class="{ 'is-checked': currentTab == 'all' }"
+				>
+					All
+				</li>
+				<li
+					@click="filterMenu('bar-snack')"
+					:class="{ 'is-checked': currentTab == 'bar-snack' }"
+				>
+					Bar Snacks
+				</li>
+				<li
+					@click="filterMenu('wings')"
+					:class="{ 'is-checked': currentTab == 'wings' }"
+				>
+					Wings
+				</li>
+				<li
+					@click="filterMenu('burger')"
+					:class="{ 'is-checked': currentTab == 'burger' }"
+				>
+					Burgers
+				</li>
+				<li
+					@click="filterMenu('sandwich')"
+					:class="{ 'is-checked': currentTab == 'sandwich' }"
+				>
+					Sandwiches
+				</li>
+				<li
+					@click="filterMenu('salad')"
+					:class="{ 'is-checked': currentTab == 'salad' }"
+				>
+					Salads
+				</li>
+				<li
+					@click="filterMenu('entree')"
+					:class="{ 'is-checked': currentTab == 'entree' }"
+				>
+					Entrees
+				</li>
+			</ul>
+	
+			<BRow class="menu-filter-items">
+				<BCol
+					v-for="(item, i) in filteredMenu" :key="i"
+					cols="12" sm="12" md="6" lg="6" xl="4"
+					class="border border-light py-4 start menu-item"
+					style="border-style: dotted !important;"
+				>
+					
+					<div class="menu-box clearfix">
+						<div class="thumb">
+							<Viewer
+								:options="{ title: false, transition: false }"
+								class="text-center"
+							>
+								<!-- Thumbnail -->
+								<img
+									:src="item.img && item != '' ? item.img : placeholderImg"
+									width="70"
+									class="d-none d-sm-block"
+								/>
+							</Viewer>
+						</div>
+	
+						<div class="menu-content">
+							<h4 class="mb-3 text-primary">
+								<a @click="viewProduct(i)" class="text-primary">
+									{{ item.name }}
+								</a>
+								<span>
+									{{
+										new Intl.NumberFormat('en-US', {
+											style: 'currency',
+											currency: 'USD',
+										}).format(item.cost)
+									}}
+								</span>
+							</h4>
+							<p class="m-0 p-0 text-info">
 								{{
+									item.description.length > 100 ?
+										item.description.substring(0, 100 - 3) + '...' :
+										item.description
+								}}
+							</p>
+						</div>
+					</div>
+				</BCol>
+			</BRow>
+	
+			<!-- Product Viewer -->
+			<div
+				class="overlay w-100 h-100 position-fixed"
+				:class="{
+					'd-none': !viewingProduct,
+					'd-block': viewingProduct
+				}"
+			>
+				<div class="overlay-content w-100 px-2 position-relative text-center">
+					<BCard
+						no-body
+						bg-variant="light"
+						text-variant="dark"
+						border-variant="secondary"
+						class="m-auto h-100 text-center shadow"
+						style="max-width: 800px;"
+					>
+						<BCardHeader class="bg-dark">
+							<BButton
+								variant="danger"
+								class="my-2 p-1 px-4 float-right"
+								pill
+								@click="viewingProduct = false"
+								style="border-radius: 20px !important;"
+							>
+								✖
+							</BButton>
+						</BCardHeader>
+	
+						<BCardBody class="overlay-content-body" style="overflow-y: auto;">
+							<BRow>
+								<BCol cols="12" class="text-center">
+									<Viewer
+										:options="{ title: false, transition: false }"
+										class="text-center"
+									>
+										<div class="img-holder mb-4 text-center">
+	
+											<img
+												:src="filteredMenu[viewingProductNumber].img || placeholderImg"
+												v-lazy="filteredMenu[viewingProductNumber].img || placeholderImg"
+												alt="No Photo"
+											/>
+										</div>
+									</Viewer>
+								</BCol>
+								<BCol cols="12" class="my-3">
+									<h4 class="font-weight-bold text-primary">
+										{{ filteredMenu[viewingProductNumber].name }}
+									</h4>
+									<h5>{{ filteredMenu[viewingProductNumber].description }}</h5>
+								</BCol>
+							</BRow>
+						</BCardBody>
+	
+						<BCardFooter class="bg-dark">
+							<h5 class="m-0 font-weight-bold text-primary">
+								{{ 
 									new Intl.NumberFormat('en-US', {
 										style: 'currency',
 										currency: 'USD',
-									}).format(item.cost)
+									}).format(filteredMenu[viewingProductNumber].cost)
 								}}
-							</span>
-						</h4>
-						<p class="m-0 p-0 text-info">
-							{{
-								item.description.length > 100 ?
-									item.description.substring(0, 100 - 3) + '...' :
-									item.description
-							}}
-						</p>
-					</div>
+							</h5>
+						</BCardFooter>
+					</BCard>
 				</div>
-			</BCol>
-		</BRow>
-
-		<!-- Product Viewer -->
-		<div
-			class="overlay w-100 h-100 position-fixed"
-			:class="{
-				'd-none': !viewingProduct,
-				'd-block': viewingProduct
-			}"
-		>
-			<div class="overlay-content w-100 px-2 position-relative text-center">
-				<BCard
-					no-body
-					bg-variant="light"
-					text-variant="dark"
-					border-variant="secondary"
-					class="m-auto h-100 text-center shadow"
-					style="max-width: 800px;"
-				>
-					<BCardHeader class="bg-dark">
-						<BButton
-							variant="danger"
-							class="my-2 p-1 px-4 float-right"
-							pill
-							@click="viewingProduct = false"
-							style="border-radius: 20px !important;"
-						>
-							✖
-						</BButton>
-					</BCardHeader>
-
-					<BCardBody class="overlay-content-body" style="overflow-y: auto;">
-						<BRow>
-							<BCol cols="12" class="text-center">
-								<Viewer
-									:options="{ title: false, transition: false }"
-									class="text-center"
-								>
-									<div class="img-holder mb-4 text-center">
-
-										<img
-											:src="filteredMenu[viewingProductNumber].img || placeholderImg"
-											v-lazy="filteredMenu[viewingProductNumber].img || placeholderImg"
-											alt="No Photo"
-										/>
-									</div>
-								</Viewer>
-							</BCol>
-							<BCol cols="12" class="my-3">
-								<h4 class="font-weight-bold text-primary">
-									{{ filteredMenu[viewingProductNumber].name }}
-								</h4>
-								<h5>{{ filteredMenu[viewingProductNumber].description }}</h5>
-							</BCol>
-						</BRow>
-					</BCardBody>
-
-					<BCardFooter class="bg-dark">
-						<h5 class="m-0 font-weight-bold text-primary">
-							{{ 
-								new Intl.NumberFormat('en-US', {
-									style: 'currency',
-									currency: 'USD',
-								}).format(filteredMenu[viewingProductNumber].cost)
-							}}
-						</h5>
-					</BCardFooter>
-				</BCard>
 			</div>
 		</div>
 	</BContainer>
@@ -184,8 +186,8 @@
 		{
 			return {
 				loading: true,
-
-				googleScriptsUrl: "https://script.googleusercontent.com/macros/echo?user_content_key=H2cnSchY6VLJi2_gtFSz5mcqy6-Q4U1cT6WlssFWsqyBjFP8I_V5no0pfBQJQe3lqIsu01PLvpRE48o75j0LIHPNaen6HA2km5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnERnH6jBfN6ciuHMlIHG8Ep_yE5Tm2iIwLoxUDDusdD4Tc2td6by5tt6nAv0j7lBlzvghaSGU9vBxqKvXI4yv82e6NV282P1ktz9Jw9Md8uu&lib=MUH7sYhu7AQ56WgSB711qRGnpgZ1Ms4TS",
+				
+				googleScriptsUrl: "https://script.googleusercontent.com/macros/echo?user_content_key=91MY3UpEMJv3gFKe0a0LMI7h2zWzyAwJkgzRsKtrCvxud9wNM8XCaKAV7xZ2zRcnySo-PMToPjmmwBhjdY4RRv3YG0ne8igqm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnFnNpRCRvnkr2CWoxk1N7CdsFzTy3zCyAIa-rJoMr9Bm2GRP8bP_PIo9Lioa_UXh9JxQoh38wTHqOy_ZzYLBPEtDgtH_Ar-55dz9Jw9Md8uu&lib=MUH7sYhu7AQ56WgSB711qRGnpgZ1Ms4TS",
 
 				currentTab: "all",
 				
@@ -232,30 +234,46 @@
 				this.viewingProductNumber = i;
 			},
 
+			splitCSVLine(line) {
+				const regex = /(?:,|\n|^)("(?:(?:"")*[^"]*)*"|[^",\n]*|(?:\n|$))/g;
+				const values = [];
+				let matches;
+				while ((matches = regex.exec(line)) !== null) {
+					let matched = matches[1];
+					if (matched && matched.startsWith('"') && matched.endsWith('"')) {
+						matched = matched.substring(1, matched.length - 1).replace(/""/g, '"');
+					}
+					values.push(matched);
+				}
+				return values;
+			},
+
 			CSVToJSON(csv)
 			{
-				const lines = csv.split('\n')
-				const result = []
-				const headers = lines[0].split(',')
+				const lines = csv.split('\n');
+				const result = [];
+				const headers = this.splitCSVLine(lines[0]);
 
-				for (let i = 1; i < lines.length; i++) {        
+				for (let i = 1; i < lines.length; i++) {
 					if (!lines[i])
-						continue
-					const obj = {}
-					const currentline = lines[i].split(',')
+						continue;
+					const obj = {};
+					const currentline = this.splitCSVLine(lines[i]);
 
 					for (let j = 0; j < headers.length; j++) {
-						obj[headers[j]] = currentline[j]
+						obj[headers[j]] = currentline[j];
 					}
-					result.push(obj)
+					result.push(obj);
 				}
-				return result
+				return result;
 			}
 		},
 
 		async created() 
 		{
 			const res = await axios.get(this.googleScriptsUrl);
+
+			console.log(res.data);
 
 			this.menu = this.CSVToJSON(res.data);
 
