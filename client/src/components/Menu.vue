@@ -87,7 +87,7 @@
 									{{
 										new Intl.NumberFormat('en-US', {
 											style: 'currency',
-											currency: 'USD',
+											currency: 'USD'
 										}).format(item.cost)
 									}}
 								</span>
@@ -164,7 +164,7 @@
 								{{ 
 									new Intl.NumberFormat('en-US', {
 										style: 'currency',
-										currency: 'USD',
+										currency: 'USD'
 									}).format(filteredMenu[viewingProductNumber].cost)
 								}}
 							</h5>
@@ -191,8 +191,10 @@
 
 				currentTab: "all",
 				
-				menu: [],
-				filteredMenu: [],
+				menu: [
+			],
+				filteredMenu: [
+			],
 				placeholderImg: require("../assets/images/logo.jpg"),
 
 				viewingProduct: false,
@@ -234,14 +236,18 @@
 				this.viewingProductNumber = i;
 			},
 
-			splitCSVLine(line) {
+			splitCSVLine(line) 
+		{
 				const regex = /(?:,|\n|^)("(?:(?:"")*[^"]*)*"|[^",\n]*|(?:\n|$))/g;
-				const values = [];
+				const values = [
+			];
 				let matches;
-				while ((matches = regex.exec(line)) !== null) {
+				while ((matches = regex.exec(line)) !== null) 
+			{
 					let matched = matches[1];
-					if (matched && matched.startsWith('"') && matched.endsWith('"')) {
-						matched = matched.substring(1, matched.length - 1).replace(/""/g, '"');
+					if (matched && matched.startsWith("\"") && matched.endsWith("\"")) 
+				{
+						matched = matched.substring(1, matched.length - 1).replace(/""/g, "\"");
 					}
 					values.push(matched);
 				}
@@ -250,17 +256,21 @@
 
 			CSVToJSON(csv)
 			{
-				const lines = csv.split('\n');
-				const result = [];
+				const lines = csv.split("\n");
+				const result = [
+			];
 				const headers = this.splitCSVLine(lines[0]);
 
-				for (let i = 1; i < lines.length; i++) {
+				for (let i = 1; i < lines.length; i++) 
+			{
 					if (!lines[i])
 						continue;
-					const obj = {};
+					const obj = {
+				};
 					const currentline = this.splitCSVLine(lines[i]);
 
-					for (let j = 0; j < headers.length; j++) {
+					for (let j = 0; j < headers.length; j++) 
+				{
 						obj[headers[j]] = currentline[j];
 					}
 					result.push(obj);

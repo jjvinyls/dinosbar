@@ -13,5 +13,5 @@
 <script>
 	export default {
 		name: "CFof404"
-	}
+	};
 </script>

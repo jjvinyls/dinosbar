@@ -8,7 +8,7 @@
 	import About from "@/components/About";
 	
 	export default {
-		name:"PAbout",
+		name: "PAbout",
 		components: {
 			About
 		},
