@@ -9,15 +9,6 @@ const path = require('path')
 
 // [REQUIRE] Personal // Other // API // Pages //
 const config = require('./s-config')
-const Functionality = require('./s-middleware/Functionality')
-
-const a_payments = require('./s-routes/api/payments')
-
-const p_ = require('./s-routes/pages')
-const p_about = require('./s-routes/pages/about')
-const p_menu = require('./s-routes/pages/menu')
-const p_payments = require('./s-routes/pages/payment')
-const p_services = require('./s-routes/pages/services')
 
 
 // [EXPRESS] //
