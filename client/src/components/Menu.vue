@@ -65,17 +65,14 @@
 					
 					<div class="menu-box clearfix">
 						<div class="thumb">
-							<Viewer
-								:options="{ title: false, transition: false }"
-								class="text-center"
-							>
+							<div v-viewer="{ title: false, transition: false }" class="text-center">
 								<!-- Thumbnail -->
 								<img
 									:src="item.img && item != '' ? item.img : placeholderImg"
 									width="70"
 									class="d-none d-sm-block"
 								/>
-							</Viewer>
+							</div>
 						</div>
 	
 						<div class="menu-content">
@@ -104,7 +101,6 @@
 				</BCol>
 			</BRow>
 	
-			<!-- Product Viewer -->
 			<div
 				class="overlay w-100 h-100 position-fixed"
 				:class="{
@@ -136,10 +132,7 @@
 						<BCardBody class="overlay-content-body" style="overflow-y: auto;">
 							<BRow>
 								<BCol cols="12" class="text-center">
-									<Viewer
-										:options="{ title: false, transition: false }"
-										class="text-center"
-									>
+									<div v-viewer="{ title: false, transition: false }" class="text-center">
 										<div class="img-holder mb-4 text-center">
 	
 											<img
@@ -148,7 +141,7 @@
 												alt="No Photo"
 											/>
 										</div>
-									</Viewer>
+									</div>
 								</BCol>
 								<BCol cols="12" class="my-3">
 									<h4 class="font-weight-bold text-primary">

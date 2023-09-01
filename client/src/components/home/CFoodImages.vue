@@ -1,8 +1,5 @@
 <template>
-	<Viewer
-		:options="{ title: false, transition: false }"
-		class="text-center"
-	>
+	<div v-viewer="{ title: false, transition: false }" class="text-center">
 		<BRow v-if="isHomePage" class="m-0 p-0">
 			<BCol
 				v-for="(img, i) in images"
@@ -30,7 +27,8 @@
 				</div>
 			</BCol>
 		</BRow>
-	</Viewer>
+	</div>
+
 </template>
 
 <script>

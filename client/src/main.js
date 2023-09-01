@@ -2,7 +2,7 @@
 import aos from "aos";
 import { BootstrapVue, IconsPlugin } from "bootstrap-vue";
 import Vue from "vue";
-import Viewer from "v-viewer";
+import VViewer from "v-viewer";
 import VueRellax from "vue-rellax";
 import "aos/dist/aos.css";
 import "bootstrap-vue/dist/bootstrap-vue.css";
@@ -20,7 +20,23 @@ import "./assets/styles/style.scss";
 
 Vue.use(BootstrapVue);
 Vue.use(IconsPlugin);
-Vue.use(Viewer, "Viewer");
+Vue.use(VViewer, {
+	defaultOptions: {
+	  // your default options here, for example:
+	  button: true,
+	  navbar: false,
+	  title: false,
+	  toolbar: false,
+	  tooltip: true,
+	  movable: true,
+	  zoomable: true,
+	  rotatable: true,
+	  scalable: true,
+	  transition: true,
+	  fullscreen: true,
+	  keyboard: true
+	}
+});
 Vue.use(VueRellax);
 
 
