@@ -7,7 +7,7 @@
 			<h6 class="text-center text-muted">
 				{{ companyInfo.companyCaption1 }}
 			</h6>
-			<br>
+			<br/>
 
 			<!-- HIDDEN -->
 			<div
@@ -17,7 +17,7 @@
 				<img
 					:src="companyInfo.locationImage"
 					class="w-100"
-				>
+				/>
 			</div>
 
 			<p
@@ -32,7 +32,7 @@
 					:src="companyInfo.signImage"
 					class="w-100"
 					style="max-width: 200px;"
-				>
+				/>
 			</div>
 
 			<div class="text-center">
@@ -56,20 +56,21 @@
 				<img
 					:src="companyInfo.locationImage"
 					class="w-100"
-				>
+				/>
 			</div>
 		</BCol>
 	</BRow>
 </template>
 
 <script>
-import companyInfo from '@/defaults/companyInfo'
+import companyInfo from "@/defaults/companyInfo";
 
 export default {
-	data() {
+	data() 
+	{
 		return {
 			companyInfo
-		}
+		};
 	},
-}
+};
 </script>

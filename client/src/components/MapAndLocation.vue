@@ -37,21 +37,22 @@
 </template>
 
 <script>
-	// [IMPORT] //
-	import { MapPinIcon } from 'vue-feather-icons'
+// [IMPORT] //
+	import { MapPinIcon } from "vue-feather-icons";
 
 	// [IMPORT] Personal //
-	import companyInfo from '@/defaults/companyInfo'
+	import companyInfo from "@/defaults/companyInfo";
 
 	export default {
 		components: {
 			MapPinIcon,
 		},
 
-		data() {
+		data() 
+	{
 			return {
 				companyInfo,
-			}
+			};
 		},
-	}
+	};
 </script>

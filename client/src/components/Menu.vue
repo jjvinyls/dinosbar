@@ -2,38 +2,52 @@
 	<BContainer id="menu" class="py-5">
 		<div class="text-center">
 			<h1 class="m-0 text-primary">Our Menu</h1>
-			<hr class="mb-4 bg-light" style="max-width: 100px;">
+			<hr class="mb-4 bg-light" style="max-width: 100px;"/>
 		</div>
 
 		<ul class="menu-filter-list list-inline text-center">
 			<li
 				@click="filterMenu('all')"
 				:class="{ 'is-checked': currentTab == 'all' }"
-			>All</li>
+			>
+				All
+			</li>
 			<li
 				@click="filterMenu('bar-snack')"
 				:class="{ 'is-checked': currentTab == 'bar-snack' }"
-			>Bar Snacks</li>
+			>
+				Bar Snacks
+			</li>
 			<li
 				@click="filterMenu('wings')"
 				:class="{ 'is-checked': currentTab == 'wings' }"
-			>Wings</li>
+			>
+				Wings
+			</li>
 			<li
 				@click="filterMenu('burger')"
 				:class="{ 'is-checked': currentTab == 'burger' }"
-			>Burgers</li>
+			>
+				Burgers
+			</li>
 			<li
 				@click="filterMenu('sandwich')"
 				:class="{ 'is-checked': currentTab == 'sandwich' }"
-			>Sandwiches</li>
+			>
+				Sandwiches
+			</li>
 			<li
 				@click="filterMenu('salad')"
 				:class="{ 'is-checked': currentTab == 'salad' }"
-			>Salads</li>
+			>
+				Salads
+			</li>
 			<li
 				@click="filterMenu('entree')"
 				:class="{ 'is-checked': currentTab == 'entree' }"
-			>Entrees</li>
+			>
+				Entrees
+			</li>
 		</ul>
 
 		<BRow v-if="!loading" class="menu-filter-items">
@@ -46,8 +60,8 @@
 				
 				<div class="menu-box clearfix">
 					<div class="thumb">
-						<viewer
-							:options="{ title: false, transition: false, }"
+						<Viewer
+							:options="{ title: false, transition: false }"
 							class="text-center"
 						>
 							<!-- Thumbnail -->
@@ -55,8 +69,8 @@
 								:src="item.img || placeholderImg"
 								width="70"
 								class="d-none d-sm-block"
-							>
-						</viewer>
+							/>
+						</Viewer>
 					</div>
 
 					<div class="menu-content">
@@ -83,7 +97,7 @@
 			class="overlay w-100 h-100 position-fixed"
 			:class="{
 				'd-none': !viewingProduct,
-				'd-block': viewingProduct,
+				'd-block': viewingProduct
 			}"
 		>
 			<div class="overlay-content w-100 px-2 position-relative text-center">
@@ -102,14 +116,16 @@
 							pill
 							@click="viewingProduct = false"
 							style="border-radius: 20px !important;"
-						>✖</BButton>
+						>
+							✖
+						</BButton>
 					</BCardHeader>
 
 					<BCardBody class="overlay-content-body" style="overflow-y: auto;">
 						<BRow>
 							<BCol cols="12" class="text-center">
-								<viewer
-									:options="{ title: false, transition: false, }"
+								<Viewer
+									:options="{ title: false, transition: false }"
 									class="text-center"
 								>
 									<div class="img-holder mb-4 text-center">
@@ -118,9 +134,9 @@
 											:src="filteredMenu[viewingProductNumber].img || placeholderImg"
 											v-lazy="filteredMenu[viewingProductNumber].img || placeholderImg"
 											alt="No Photo"
-										>
+										/>
 									</div>
-								</viewer>
+								</Viewer>
 							</BCol>
 							<BCol cols="12" class="my-3">
 								<h4 class="font-weight-bold text-primary">
@@ -143,60 +159,73 @@
 </template>
 
 <script>
-	import menu from '@/defaults/menu'
+	import menu from "@/defaults/menu";
 
 	export default {
-		data() {
+		data() 
+	{
 			return {
 				loading: true,
 
-				currentTab: 'all',
+				currentTab: "all",
 				
 				menu: menu,
 				filteredMenu: menu,
-				placeholderImg: require('../assets/images/logo.jpg'),
+				placeholderImg: require("../assets/images/logo.jpg"),
 
 				viewingProduct: false,
 				viewingProductNumber: 0,
-			}
+			};
 		},
 
 		methods: {
-			filterMenu(filter) {
-				this.loading = true
-				this.currentTab = filter
-				this.filteredMenu = []
+			filterMenu(filter) 
+		{
+				this.loading = true;
+				this.currentTab = filter;
+				this.filteredMenu = [
+			];
 
-				if (filter == 'all') { this.filteredMenu = this.menu }
-				else {
-					for (let i = 0; i < this.menu.length; i++) {
-						const mi = this.menu[i]
+				if (filter == "all") 
+			{
+				this.filteredMenu = this.menu; 
+			}
+				else 
+			{
+					for (let i = 0; i < this.menu.length; i++) 
+				{
+						const mi = this.menu[i];
 					
-						if (mi.category == filter) {
-							this.filteredMenu.push(mi)
+						if (mi.category == filter) 
+					{
+							this.filteredMenu.push(mi);
 						}
 					}
 				}
 
-				this.loading = false
+				this.loading = false;
 			},
 
-			viewProduct(i) {
-				this.viewingProduct = true
-				this.viewingProductNumber = i
+			viewProduct(i) 
+		{
+				this.viewingProduct = true;
+				this.viewingProductNumber = i;
 			},
 		},
 
-		created() {
-			this.loading = false
+		created() 
+	{
+			this.loading = false;
 
-			window.addEventListener('keyup', (event) => {
-				if (event.key == 'Escape') {
-					this.viewingProduct = false
+			window.addEventListener("keyup", (event) => 
+		{
+				if (event.key == "Escape") 
+			{
+					this.viewingProduct = false;
 				}
-			})
+			});
 		},
-	}
+	};
 </script>
 
 <style lang="scss" scoped>

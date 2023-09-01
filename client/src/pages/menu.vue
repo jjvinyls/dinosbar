@@ -6,12 +6,12 @@
 </template>
 
 <script>
-	// [IMPORT] Personal //
-	import Menu from '@/components//Menu'
+// [IMPORT] Personal //
+	import Menu from "@/components//Menu";
 
 	export default {
 		components: {
 			Menu,
 		},
-	}
+	};
 </script>

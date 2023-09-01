@@ -59,19 +59,19 @@
 </template>
 
 <script>
-	// [IMPORT] Personal //
-	import About from '@/components/About'
-	import ContactInfo from '@/components/ContactInfo'
-	import FoodImages from '@/components/home/FoodImages'
-	import Hero from '@/components/home/Hero'
-	import MapAndLocation from '@/components/MapAndLocation'
-	import Menu from '@/components/Menu'
-	import Reviews from '@/components/home/Reviews'
-	import pageData from '@/defaults/pages'
-	import router from '@/router'
+// [IMPORT] Personal //
+	import About from "@/components/About";
+	import ContactInfo from "@/components/ContactInfo";
+	import FoodImages from "@/components/home/FoodImages";
+	import Hero from "@/components/home/Hero";
+	import MapAndLocation from "@/components/MapAndLocation";
+	import Menu from "@/components/Menu";
+	import Reviews from "@/components/home/Reviews";
+	import pageData from "@/defaults/pages";
+	import router from "@/router";
 
 	export default {
-		name: 'Home',
+		name: "Home",
 
 		components: {
 			About,
@@ -83,32 +83,42 @@
 			Reviews,
 		},
 
-		data() {
+		data() 
+	{
 			return {
 				loading: true,
 
 				pageData: pageData,
-				reqData: {},
-				reikiTitle: 'Reiki Title',
-				reikiDescription: 'Reiki description goes here',
-				services: [],
-			}
+				reqData: {
+			},
+				reikiTitle: "Reiki Title",
+				reikiDescription: "Reiki description goes here",
+				services: [
+			],
+			};
 		},
 
 		methods: {
-			redirectCompanyInfo() { router.push({ name: 'book' }) },
+			redirectCompanyInfo() 
+		{
+			router.push({
+				name: "book" 
+			}); 
+		},
 		},
 
-		async created() {
-			this.$store.state.isHomePage = true
+		async created() 
+	{
+			this.$store.state.isHomePage = true;
 
-			this.loading = false
+			this.loading = false;
 		},
 
-		destroyed() {
-			this.$store.state.isHomePage = false
+		destroyed() 
+	{
+			this.$store.state.isHomePage = false;
 		},
-	}
+	};
 </script>
 
 <style lang="scss" scoped>

@@ -38,7 +38,7 @@
 						style="font-size: 4em;"
 					>
 						{{ mainText }}
-						<br><br>
+						<br/><br/>
 					</h1>
 
 					<h3
@@ -53,7 +53,7 @@
 						"
 					>
 						{{ mainText }}
-						<br><br>
+						<br/><br/>
 					</h3>
 
 					<h5 class="title d-block d-sm-none font-weight-light text-white">
@@ -65,17 +65,21 @@
 							variant="secondary"
 							size="lg"
 							class="d-none d-sm-block m-auto shadow"
-						>Book Apointment</BButton>
+						>
+							Book Apointment
+						</BButton>
 
 						<BButton
 							variant="secondary"
 							size=""
 							class="d-block d-sm-none m-auto shadow"
-						>Book Apointment</BButton>
+						>
+							Book Apointment
+						</BButton>
 					</RouterLink>
 
 					<div class="title d-none d-md-block font-weight-bold text-white">
-						<br><br><br>
+						<br/><br/><br/>
 					</div>
 				</div>
 			</BCarouselSlide>
@@ -108,29 +112,32 @@
 
 			mainText: {
 				type: String,
-				default: '',
+				default: "",
 			},
 		},
 
-		data() {
+		data() 
+	{
 			return {
 				slide: 0,
 				sliding: null,
 				currentSlid: null,
-			}
+			};
 		},
 		methods: {
-			onSlideStart(slide) {
-				this.currentSlid = slide
-				this.sliding = true
+			onSlideStart(slide) 
+		{
+				this.currentSlid = slide;
+				this.sliding = true;
 			},
 
-			onSlideEnd(slide) {
-				this.currentSlid = slide
-				this.sliding = false
+			onSlideEnd(slide) 
+		{
+				this.currentSlid = slide;
+				this.sliding = false;
 			}
 		}
-	}
+	};
 </script>
 
 <style lang="scss" scoped>

@@ -5,7 +5,7 @@
 			<VueTinySlider v-bind="slider.options" :class="slider.class">
 				<!-- All Images -->
 				<div v-for="(img, index) in images" :key="index" class="text-center">
-					<img :src="img" class="rounded-lg shadow image">
+					<img :src="img" class="rounded-lg shadow image"/>
 				</div>
 			</VueTinySlider>
 		</div>
@@ -13,7 +13,7 @@
 </template>
 
 <script>
-	import VueTinySlider from 'vue-tiny-slider'
+	import VueTinySlider from "vue-tiny-slider";
 
 	export default {
 		props: {
@@ -32,12 +32,13 @@
 			VueTinySlider
 		},
 
-		data() {
+		data() 
+	{
 			return {
 				sliders: [
 					// LG
 					{
-						class: 'd-none d-lg-block my-3',
+						class: "d-none d-lg-block my-3",
 						options: {
 							items: this.totalOnLg,
 							gutter: 20,
@@ -51,7 +52,7 @@
 					},
 					// MD
 					{
-						class: 'd-none d-md-block d-lg-none my-3',
+						class: "d-none d-md-block d-lg-none my-3",
 						options: {
 							items: this.totalOnLg - 1,
 							gutter: 20,
@@ -65,7 +66,7 @@
 					},
 					// SM
 					{
-						class: 'd-none d-sm-block d-md-none my-3',
+						class: "d-none d-sm-block d-md-none my-3",
 						options: {
 							items: this.totalOnLg - 2,
 							gutter: 20,
@@ -79,7 +80,7 @@
 					},
 					// XS
 					{
-						class: 'd-block d-sm-none my-3',
+						class: "d-block d-sm-none my-3",
 						options: {
 							items: this.totalOnLg - 3,
 							gutter: 20,
@@ -92,9 +93,9 @@
 						},
 					},
 				],
-			}
+			};
 		},
-	}
+	};
 </script>
 
 <style lang="scss">

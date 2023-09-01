@@ -1,6 +1,6 @@
 <template>
-	<viewer
-		:options="{ title: false, transition: false, }"
+	<Viewer
+		:options="{ title: false, transition: false }"
 		class="text-center"
 	>
 		<BRow v-if="isHomePage" class="m-0 p-0">
@@ -10,7 +10,7 @@
 				cols="6" sm="4" md="3"
 				class="m-0 p-0"
 			>
-				<img :src="img" class="w-100" :class="{ 'd-none': i >= 4 && isHomePage }">
+				<img :src="img" class="w-100" :class="{ 'd-none': i >= 4 && isHomePage }"/>
 			</BCol>
 		</BRow>
 
@@ -26,11 +26,11 @@
 						:src="img"
 						v-lazy="img"
 						alt="No Photo"
-					>
+					/>
 				</div>
 			</BCol>
 		</BRow>
-	</viewer>
+	</Viewer>
 </template>
 
 <script>
@@ -46,7 +46,7 @@ export default {
 			default: false
 		}
 	},
-}
+};
 </script>
 
 <style lang="scss" scoped>

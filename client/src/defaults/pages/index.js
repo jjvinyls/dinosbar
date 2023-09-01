@@ -1,4 +1,4 @@
-const companyInfo = require('../companyInfo')
+const companyInfo = require("../companyInfo");
 
 
 module.exports = {
@@ -7,24 +7,24 @@ module.exports = {
 	// [HERO] Caraousel Slider //
 	caraousel: [
 		{
-			caption:'',
-			text: 'DINO\'S BAR & GRILL',
-			img: require('../../assets/images/pages/index/hero/hero1.jpg'),
+			caption: "",
+			text: "DINO'S BAR & GRILL",
+			img: require("../../assets/images/pages/index/hero/hero1.jpg"),
 		},
 		{
-			caption:'',
-			text: 'GREAT FOOD',
-			img: require('../../assets/images/pages/index/hero/hero2.jpg'),
+			caption: "",
+			text: "GREAT FOOD",
+			img: require("../../assets/images/pages/index/hero/hero2.jpg"),
 		},
 		{
-			caption: '',
-			text: 'SPORTS & MUSIC',
-			img: require('../../assets/images/pages/index/hero/hero3.jpg'),
+			caption: "",
+			text: "SPORTS & MUSIC",
+			img: require("../../assets/images/pages/index/hero/hero3.jpg"),
 		},
 		{
-			caption: '',
-			text: 'WATCH SPORTS',
-			img: require('../../assets/images/pages/index/hero/hero4.png'),
+			caption: "",
+			text: "WATCH SPORTS",
+			img: require("../../assets/images/pages/index/hero/hero4.png"),
 		},
 	],
 
@@ -34,6 +34,6 @@ module.exports = {
 		address: companyInfo.address,
 		googleMapsLink: companyInfo.googleMapsLink,
 		hoursOfOperation: companyInfo.hoursOfOperation,
-		text: 'By Appointments',
+		text: "By Appointments",
 	},
-}
+};

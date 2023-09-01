@@ -1,19 +1,23 @@
 // [EXPORT] //
 module.exports = {
-	title: 'Gallery',
+	title: "Gallery",
 	rx: [
 		{
-			c1: { title: 'Reiki' },
+			c1: {
+				title: "Reiki" 
+			},
 	
 			cx: [
 			]
 		},
 		{
-			c1: { title: 'Other' },
+			c1: {
+				title: "Other" 
+			},
 	
 			cx: [
 				
 			]
 		},
 	]
-}
+};

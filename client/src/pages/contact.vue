@@ -6,12 +6,12 @@
 </template>
 
 <script>
-	// [IMPORT] //
+// [IMPORT] //
 
-	// [IMPORT] Personal //
-	import ContactInfo from '@/components/ContactInfo'
-	import MapAndLocation from '@/components/MapAndLocation'
-	import DPage from '@/defaults/pages/directions'
+// [IMPORT] Personal //
+	import ContactInfo from "@/components/ContactInfo";
+	import MapAndLocation from "@/components/MapAndLocation";
+	import DPage from "@/defaults/pages/directions";
 
 	export default {
 		components: {
@@ -19,10 +19,11 @@
 			MapAndLocation,
 		},
 
-		data() {
+		data() 
+	{
 			return {
 				DPage: DPage,
-			}
+			};
 		},
-	}
+	};
 </script>

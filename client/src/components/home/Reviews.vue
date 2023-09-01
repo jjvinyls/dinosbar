@@ -7,7 +7,9 @@
 					<span
 						class="text-primary"
 						style="font-family: 'Dancing Script', cursive !important;"
-					>Reviews</span>
+					>
+						Reviews
+					</span>
 				</h1>
 				<h5 class="mb-5 text-info">What they say</h5>
 				<div class="space-30"></div>
@@ -27,7 +29,7 @@
 									width="50"
 									class="rounded-circle"
 									draggable="false"
-								>
+								/>
 								<h4>
 									{{ r.name }}
 									<small>Dino's Customer</small>
@@ -47,10 +49,11 @@
 </template>
 
 <script>
-	import VueTinySlider from 'vue-tiny-slider'
+	import VueTinySlider from "vue-tiny-slider";
 
 	export default {
-		data() {
+		data() 
+	{
 			return {
 				options: {
 					mouseDrag: true,
@@ -67,27 +70,27 @@
 
 				reviews: [
 					{
-						name: 'Vanessa C.',
-						img: require('../../assets/images/avtar-1.jpg'),
-						quote: 'Love this place! Great atmosphere and delicious food.',
+						name: "Vanessa C.",
+						img: require("../../assets/images/avtar-1.jpg"),
+						quote: "Love this place! Great atmosphere and delicious food.",
 					},
 					{
-						name: 'Lisa D.',
-						img: require('../../assets/images/avtar-2.png'),
-						quote: 'Great food and beer selection.  The chef came out and recommended the ravioli.  They were excellent.'
+						name: "Lisa D.",
+						img: require("../../assets/images/avtar-2.png"),
+						quote: "Great food and beer selection.  The chef came out and recommended the ravioli.  They were excellent."
 					},
 					{
-						name: 'Beatriz M.',
-						img: require('../../assets/images/avtar-3.png'),
-						quote: 'Great place. Service was most accommodating and the food was delicious.',
+						name: "Beatriz M.",
+						img: require("../../assets/images/avtar-3.png"),
+						quote: "Great place. Service was most accommodating and the food was delicious.",
 					},
 				],
-			}
+			};
 		},
 		components: {
 			VueTinySlider,
 		},
-	}
+	};
 </script>
 
 <style lang="scss" scoped>

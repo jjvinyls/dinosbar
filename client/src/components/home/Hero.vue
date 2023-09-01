@@ -16,7 +16,7 @@
 						:data-rellax-desktop-speed="
 							$store.state.window.innerWidth >= 1367 ? -9 : -3
 						"
-					>
+					/>
 					
 					<!-- Slide Content Center -->
 					<div class="slide-center">
@@ -32,7 +32,9 @@
 									border border-white
 									slide-text
 								"
-							>{{ s.text }}</h1>
+							>
+								{{ s.text }}
+							</h1>
 						</div>
 					</div>
 				</div>
@@ -65,13 +67,13 @@
 </template>
 
 <script>
-	// [PERSONAL] //
-	import { MapPinIcon } from 'vue-feather-icons'
-	import VueTinySlider from 'vue-tiny-slider'
+// [PERSONAL] //
+	import { MapPinIcon } from "vue-feather-icons";
+	import VueTinySlider from "vue-tiny-slider";
 
 	// [IMPORT] Personal //
-	import companyInfo from '../../defaults/companyInfo'
-	import SocialMediaPlug from '../SocialMediaPlug'
+	import companyInfo from "../../defaults/companyInfo";
+	import SocialMediaPlug from "../SocialMediaPlug";
 
 	export default {
 		props: {
@@ -86,11 +88,12 @@
 			},
 		},
 
-		data() {
+		data() 
+	{
 			return {
 				companyInfo: companyInfo,
 
-				mainText: 'The Boys Are Back In Town!',
+				mainText: "The Boys Are Back In Town!",
 
 				options: {
 					mouseDrag: true,
@@ -104,7 +107,7 @@
 					autoplayTimeout: 3000,
 					speed: 1000,
 				},
-			}
+			};
 		},
 
 		components: {
@@ -112,7 +115,7 @@
 			VueTinySlider,
 			SocialMediaPlug,
 		},
-	}
+	};
 </script>
 
 <style lang="scss" scoped>

@@ -26,7 +26,9 @@
 							<BButton
 								class="my-5"
 								size="lg"
-							>View More Images</BButton>
+							>
+								View More Images
+							</BButton>
 						</RouterLink>
 					</div>
 				</BCol>
@@ -36,10 +38,10 @@
 </template>
 
 <script>
-	import FoodImages from '../components/home/FoodImages.vue'
-	import SocialMediaPlug from '../components/SocialMediaPlug'
-	import companyInfo from '../defaults/companyInfo'
-	import pageLinks from '../defaults/pageLinks'
+	import FoodImages from "../components/home/FoodImages.vue";
+	import SocialMediaPlug from "../components/SocialMediaPlug";
+	import companyInfo from "../defaults/companyInfo";
+	import pageLinks from "../defaults/pageLinks";
 
 	export default {
 		components: {
@@ -47,11 +49,12 @@
 			FoodImages
 		},
 
-		data() {
+		data() 
+	{
 			return {
 				companyInfo: companyInfo,
 				pageLinks: pageLinks,
-			}
+			};
 		},
-	}
+	};
 </script>

@@ -30,11 +30,11 @@
 </template>
 
 <script>
-	// [IMPORT] //
-	import { FacebookIcon, InstagramIcon, YoutubeIcon } from 'vue-feather-icons'
+// [IMPORT] //
+	import { FacebookIcon, InstagramIcon, YoutubeIcon } from "vue-feather-icons";
 
 	// [IMPORT] Personal //
-	import defaultData from '@/defaults/companyInfo'
+	import defaultData from "@/defaults/companyInfo";
 
 	export default {
 		props: {
@@ -45,12 +45,12 @@
 
 			variant: {
 				type: String,
-				default: 'light'
+				default: "light"
 			},
 
 			strokeWidth: {
 				type: String,
-				default: '1.5'
+				default: "1.5"
 			},
 		},
 
@@ -60,10 +60,11 @@
 			YoutubeIcon
 		},
 		
-		data() {
+		data() 
+	{
 			return {
 				defaultData: defaultData,
-			}
+			};
 		},
-	}
+	};
 </script>

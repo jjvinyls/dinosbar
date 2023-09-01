@@ -9,7 +9,7 @@
 						</h4>
 						<h6 v-html="companyInfo.companyCaption1" class="text-light small">
 						</h6>
-						<hr>
+						<hr/>
 					</RouterLink>
 				</BCol>
 
@@ -29,7 +29,7 @@
 							{{ hoo.hours }}
 						</li>
 					</ul>
-					<hr>
+					<hr/>
 				</BCol>
 
 				<BCol cols="12" sm="4" class="text-center" data-aos="fade-up">
@@ -42,7 +42,7 @@
 							</RouterLink>
 						</li>
 					</ul>
-					<hr>
+					<hr/>
 				</BCol>
 
 				<BCol cols="12" sm="4" class="text-center" data-aos="fade-up">
@@ -53,10 +53,10 @@
 				<BCol cols="12" class="my-3 text-center">
 					<h6 class="">
 						<a href="https://www.w3st.io" target="_blank" class="text-secondary">
-						© w3st.io {{ new Date().getFullYear() }}
+							© w3st.io {{ new Date().getFullYear() }}
 						</a>
 					</h6>
-					<br><br><br><br><br>
+					<br/><br/><br/><br/><br/>
 				</BCol>
 			</BRow>
 		</BContainer>
@@ -64,20 +64,21 @@
 </template>
 
 <script>
-	import SocialMediaPlug from '../../components/SocialMediaPlug'
-	import companyInfo from '../../defaults/companyInfo'
-	import pageLinks from '../../defaults/pageLinks'
+	import SocialMediaPlug from "../../components/SocialMediaPlug";
+	import companyInfo from "../../defaults/companyInfo";
+	import pageLinks from "../../defaults/pageLinks";
 
 	export default {
 		components: {
 			SocialMediaPlug
 		},
 
-		data() {
+		data() 
+	{
 			return {
 				companyInfo: companyInfo,
 				pageLinks: pageLinks,
-			}
+			};
 		},
-	}
+	};
 </script>

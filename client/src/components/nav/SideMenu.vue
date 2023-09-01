@@ -10,7 +10,9 @@
 				variant="secondary"
 				class="w-100 mb-2 p-4 text-white"
 				@click="closeMenu()"
-			><XIcon size="36" /></BButton>
+			>
+				<XIcon size="36" />
+			</BButton>
 
 			<!-- Menu Items -->
 			<BButton
@@ -20,7 +22,9 @@
 				variant="outline-seconadry"
 				class="w-100 text-primary"
 				@click="menuItemClicked(button.path)"
-			>{{ button.text }}</BButton>
+			>
+				{{ button.text }}
+			</BButton>
 
 			<a v-show="$store.state.showMenu" :href="companyInfo.googleMapsLink" class="text-center">
 				<h5 class="m-4 text-secondary">{{ companyInfo.address }}</h5>
@@ -32,29 +36,29 @@
 				variant="secondary"
 				class="m-4"
 			/>
-			<br><br><br><br><br>
+			<br/><br/><br/><br/><br/>
 
 		</nav>
 
-		<transition name="fade">
+		<Transition name="fade">
 			<div
 				v-if="$store.state.showMenu"
 				class="backdrop w-100"
 				@click="closeMenu()"
 			></div>
-		</transition>
+		</Transition>
 	</div>
 </template>
 
 <script>
-	// [IMPORT] //
-	import { XIcon } from 'vue-feather-icons'
+// [IMPORT] //
+	import { XIcon } from "vue-feather-icons";
 
 	// [IMPORT] Personal //
-	import SocialMediaPlug from '@/components/SocialMediaPlug'
-	import companyInfo from '@/defaults/companyInfo'
-	import buttons from '@/defaults/pageLinks'
-	import router from '@/router'
+	import SocialMediaPlug from "@/components/SocialMediaPlug";
+	import companyInfo from "@/defaults/companyInfo";
+	import buttons from "@/defaults/pageLinks";
+	import router from "@/router";
 
 	// [EXPORT] //
 	export default {
@@ -63,24 +67,27 @@
 			SocialMediaPlug,
 		},
 
-		data() {
+		data() 
+	{
 			return {
 				companyInfo: companyInfo,
 				buttons: buttons,
-			}
+			};
 		},
 
 		methods: {
-			closeMenu() {
-				this.$store.state.showMenu = !this.$store.state.showMenu
+			closeMenu() 
+		{
+				this.$store.state.showMenu = !this.$store.state.showMenu;
 			},
 
-			menuItemClicked(path) {	
-				router.push(path)
-				this.closeMenu()
+			menuItemClicked(path) 
+		{	
+				router.push(path);
+				this.closeMenu();
 			}
 		}
-	}
+	};
 </script>
 
 <style lang="scss" scoped>

@@ -52,15 +52,16 @@
 </template>
 
 <script>
-import { ClockIcon, MailIcon, MapIcon } from 'vue-feather-icons'
+import { ClockIcon, MailIcon, MapIcon } from "vue-feather-icons";
 
-import companyInfo from '../defaults/companyInfo'
+import companyInfo from "../defaults/companyInfo";
 
 export default {
-	data() {
+	data() 
+	{
 		return {
 			companyInfo
-		}
+		};
 	},
 
 	components: {
@@ -68,7 +69,7 @@ export default {
 		MailIcon,
 		MapIcon,
 	},
-}
+};
 </script>
 
 <style lang="scss" scoped>

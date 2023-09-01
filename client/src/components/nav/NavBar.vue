@@ -3,7 +3,9 @@
 		<!-- Desktop Menu -->
 		<div
 			class="d-none d-xl-flex w-100 transition"
-			:class="[navClass, { 'bg-dark': !$store.state.isHomePage }]"
+			:class="[
+				navClass, { 'bg-dark': !$store.state.isHomePage },
+			]"
 		>
 			<div class="ml-auto">
 				<RouterLink to="/">
@@ -11,7 +13,9 @@
 						variant="none"
 						class="mx-1 mx-md-2 mx-lg-2 mx-xl-3 py-5 text-white font-weight-bold text-uppercase menu-link"
 						:class="titleClass"
-					><h4 class="m-0">Home</h4></BButton>
+					>
+						<h4 class="m-0">Home</h4>
+					</BButton>
 				</RouterLink>
 
 				<RouterLink to="/menu">
@@ -19,7 +23,9 @@
 						variant="none"
 						class="mx-1 mx-md-2 mx-lg-2 mx-xl-3 py-5 text-white font-weight-bold text-uppercase menu-link"
 						:class="titleClass"
-					><h4 class="m-0">Menu</h4></BButton>
+					>
+						<h4 class="m-0">Menu</h4>
+					</BButton>
 				</RouterLink>
 
 				<RouterLink to="/contact" class="">
@@ -27,7 +33,9 @@
 						variant="none"
 						class="mx-1 mx-md-2 mx-lg-2 mx-xl-3 py-5 text-white font-weight-bold text-uppercase menu-link"
 						:class="titleClass"
-					><h4 class="m-0">Contact</h4></BButton>
+					>
+						<h4 class="m-0">Contact</h4>
+					</BButton>
 				</RouterLink>
 			</div>
 
@@ -36,7 +44,7 @@
 					<img
 						:src="require('../../assets/images/company/dinos-dark.png')"
 						class="w-100"
-					>
+					/>
 				</RouterLink>
 			</div>
 
@@ -46,7 +54,9 @@
 						variant="none"
 						class="mx-1 mx-md-2 mx-lg-2 mx-xl-3 py-5 text-white font-weight-bold text-uppercase menu-link"
 						:class="titleClass"
-					><h4 class="m-0">About</h4></BButton>
+					>
+						<h4 class="m-0">About</h4>
+					</BButton>
 				</RouterLink>
 
 				<RouterLink to="/gallery" class="">
@@ -54,7 +64,9 @@
 						variant="none"
 						class="mx-1 mx-md-2 mx-lg-2 mx-xl-3 py-5 text-white font-weight-bold text-uppercase menu-link"
 						:class="titleClass"
-					><h4 class="m-0">Gallery</h4></BButton>
+					>
+						<h4 class="m-0">Gallery</h4>
+					</BButton>
 				</RouterLink>
 
 				<RouterLink to="/follow-us" class="">
@@ -62,7 +74,9 @@
 						variant="none"
 						class="mx-1 mx-md-2 mx-lg-2 mx-xl-3 py-5 text-white font-weight-bold text-uppercase menu-link"
 						:class="titleClass"
-					><h4 class="m-0">Follow Us</h4></BButton>
+					>
+						<h4 class="m-0">Follow Us</h4>
+					</BButton>
 				</RouterLink>
 			</div>
 		</div>
@@ -70,24 +84,28 @@
 		<!-- Mobile Menu -->
 		<div
 			class="d-flex d-xl-none m-0 p-0 text-right bg-shade-darker transition"
-			:class="[navClass, { 'bg-dark': !$store.state.isHomePage }]"
+			:class="[
+				navClass, { 'bg-dark': !$store.state.isHomePage },
+			]"
 		>
 			<div class="text-center w-100 px-3 py-3" style="max-width: 130px;">
 				<RouterLink to="/">
-				<img
-					:src="require('../../assets/images/company/dinos-dark.png')"
-					class="w-100"
-				>
+					<img
+						:src="require('../../assets/images/company/dinos-dark.png')"
+						class="w-100"
+					/>
 				</RouterLink>
 			</div>
 
 			<div class="ml-auto">
 				<!-- [HIDDEN] Google Maps Icon -->
 				<a :href="companyInfo.googleMapsLink" target="_blank">
-				<BButton
-					variant="primary"
-					class="ml-auto h-100 px-3 text-light"
-				><MapPinIcon size="2x" /></BButton>
+					<BButton
+						variant="primary"
+						class="ml-auto h-100 px-3 text-light"
+					>
+						<MapPinIcon size="2x" />
+					</BButton>
 				</a>
 
 				<!-- [HIDDEN] Menu Button -->
@@ -95,7 +113,9 @@
 					variant="none"
 					class="px-4 px-sm-5 text-light"
 					@click="toggle()"
-				><MenuIcon size="3x" /></BButton>
+				>
+					<MenuIcon size="3x" />
+				</BButton>
 			</div>
 		</div>
 
@@ -105,14 +125,14 @@
 </template>
 
 <script>
-	// [IMPORT] //
-	import { MenuIcon, MapPinIcon } from 'vue-feather-icons'
+// [IMPORT] //
+	import { MenuIcon, MapPinIcon } from "vue-feather-icons";
 
 	// [IMPORT] Personal //
-	import SideMenu from '@/components/nav/SideMenu'
-	import companyInfo from '@/defaults/companyInfo'
-	import buttons from '@/defaults/pageLinks'
-	import router from '@/router'
+	import SideMenu from "@/components/nav/SideMenu";
+	import companyInfo from "@/defaults/companyInfo";
+	import buttons from "@/defaults/pageLinks";
+	import router from "@/router";
 
 	export default {
 		components: {
@@ -121,37 +141,46 @@
 			SideMenu,
 		},
 
-		data() {
+		data() 
+	{
 			return {
-				titleClass: '',
-				navClass: '',
+				titleClass: "",
+				navClass: "",
 				companyInfo: companyInfo,
 				buttons: buttons,
 				loggedIn: false,
-				decoded: {},
-				sideMenuOpen: false,router:router
-			}
+				decoded: {
+			},
+				sideMenuOpen: false, router: router
+			};
 		},
 
 		methods: {
-			toggle() { this.$store.state.showMenu = !this.$store.state.showMenu },
+			toggle() 
+		{
+			this.$store.state.showMenu = !this.$store.state.showMenu; 
+		},
 
-			handleScroll() {
-				if (window.scrollY > 0) {
-					this.navClass = 'bg-shade-darker'
-					this.titleClass = 'text-white'
+			handleScroll() 
+		{
+				if (window.scrollY > 0) 
+			{
+					this.navClass = "bg-shade-darker";
+					this.titleClass = "text-white";
 				}
-				else {
-					this.navClass = ''
-					this.titleClass = ''
+				else 
+			{
+					this.navClass = "";
+					this.titleClass = "";
 				}
 			},
 		},
 
-		created() {
-			window.addEventListener('scroll', this.handleScroll)
+		created() 
+	{
+			window.addEventListener("scroll", this.handleScroll);
 		},
-	}
+	};
 </script>
 
 <style lang="scss" scoped>

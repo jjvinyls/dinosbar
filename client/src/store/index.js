@@ -1,15 +1,15 @@
 // [IMPORT] //
-import Vue from 'vue'
-import Vuex from 'vuex'
+import Vue from "vue";
+import Vuex from "vuex";
 
 
 // [USE] //
-Vue.use(Vuex)
+Vue.use(Vuex);
 
 
 export default new Vuex.Store({
 	state: {
-		node_env: localStorage.node_env == 'development' ? 'development' : 'production',
+		node_env: localStorage.node_env == "development" ? "development" : "production",
 
 		showIntro: true,
 		loading: false,
@@ -17,10 +17,12 @@ export default new Vuex.Store({
 		showMenu: false,
 
 		userLogged: false,
-		user_decoded: {},
+		user_decoded: {
+		},
 
 		adminLogged: false,
-		admin_decoded: {},
+		admin_decoded: {
+		},
 
 		isHomePage: false,
 
@@ -31,15 +33,24 @@ export default new Vuex.Store({
 
 	// Syncrous //
 	mutations: {
-		isLoading(state) { state.loading = true },
+		isLoading(state) 
+		{
+			state.loading = true; 
+		},
 
-		isNotLoading(state) { state.loading = false },
+		isNotLoading(state) 
+		{
+			state.loading = false; 
+		},
 	},
 
 	// Asyncronous //
-	actions: {},
+	actions: {
+	},
 
-	getters: {},
+	getters: {
+	},
 	
-	modules: {},
+	modules: {
+	},
 });

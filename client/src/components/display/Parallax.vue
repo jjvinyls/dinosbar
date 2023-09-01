@@ -12,7 +12,9 @@
 				v-if="text"
 				class="my-auto text-center text-white nav-spacer"
 				style="font-size: 4em;"
-			>{{ text }}</h1>
+			>
+				{{ text }}
+			</h1>
 		</div>
 	</div>
 </template>
@@ -30,7 +32,7 @@
 
 			text: {
 				type: String,
-				default: '',
+				default: "",
 			},
 
 			parallaxNumber: {
@@ -38,7 +40,7 @@
 				default: 2,
 			},
 		},
-	}
+	};
 </script>
 
 <style lang="scss" scoped>
