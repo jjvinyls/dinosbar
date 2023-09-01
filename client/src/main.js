@@ -20,7 +20,7 @@ import "./assets/styles/style.scss";
 
 Vue.use(BootstrapVue);
 Vue.use(IconsPlugin);
-Vue.use(Viewer);
+Vue.use(Viewer, "Viewer");
 Vue.use(VueRellax);
 
 

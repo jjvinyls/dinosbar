@@ -50,6 +50,10 @@
 			</li>
 		</ul>
 
+		<div v-if="loading" class="my-5">
+			<h1 class="text-primary text-center">Loading..</h1>
+		</div>
+
 		<BRow v-if="!loading" class="menu-filter-items">
 			<BCol
 				v-for="(item, i) in filteredMenu" :key="i"
@@ -66,7 +70,7 @@
 						>
 							<!-- Thumbnail -->
 							<img
-								:src="item.img || placeholderImg"
+								:src="item.img && item != '' ? item.img : placeholderImg"
 								width="70"
 								class="d-none d-sm-block"
 							/>
@@ -78,7 +82,14 @@
 							<a @click="viewProduct(i)" class="text-primary">
 								{{ item.name }}
 							</a>
-							<span>{{ item.costString }}</span>
+							<span>
+								{{
+									new Intl.NumberFormat('en-US', {
+										style: 'currency',
+										currency: 'USD',
+									}).format(item.cost)
+								}}
+							</span>
 						</h4>
 						<p class="m-0 p-0 text-info">
 							{{
@@ -149,7 +160,12 @@
 
 					<BCardFooter class="bg-dark">
 						<h5 class="m-0 font-weight-bold text-primary">
-							{{ filteredMenu[viewingProductNumber].costString }}
+							{{ 
+								new Intl.NumberFormat('en-US', {
+									style: 'currency',
+									currency: 'USD',
+								}).format(filteredMenu[viewingProductNumber].cost)
+							}}
 						</h5>
 					</BCardFooter>
 				</BCard>
@@ -159,7 +175,7 @@
 </template>
 
 <script>
-	import menu from "@/defaults/menu";
+	import axios from "axios";
 
 	export default {
 		name: "CMenu",
@@ -169,10 +185,12 @@
 			return {
 				loading: true,
 
+				googleScriptsUrl: "https://script.googleusercontent.com/macros/echo?user_content_key=H2cnSchY6VLJi2_gtFSz5mcqy6-Q4U1cT6WlssFWsqyBjFP8I_V5no0pfBQJQe3lqIsu01PLvpRE48o75j0LIHPNaen6HA2km5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnERnH6jBfN6ciuHMlIHG8Ep_yE5Tm2iIwLoxUDDusdD4Tc2td6by5tt6nAv0j7lBlzvghaSGU9vBxqKvXI4yv82e6NV282P1ktz9Jw9Md8uu&lib=MUH7sYhu7AQ56WgSB711qRGnpgZ1Ms4TS",
+
 				currentTab: "all",
 				
-				menu: menu,
-				filteredMenu: menu,
+				menu: [],
+				filteredMenu: [],
 				placeholderImg: require("../assets/images/logo.jpg"),
 
 				viewingProduct: false,
@@ -213,10 +231,38 @@
 				this.viewingProduct = true;
 				this.viewingProductNumber = i;
 			},
+
+			CSVToJSON(csv)
+			{
+				const lines = csv.split('\n')
+				const result = []
+				const headers = lines[0].split(',')
+
+				for (let i = 1; i < lines.length; i++) {        
+					if (!lines[i])
+						continue
+					const obj = {}
+					const currentline = lines[i].split(',')
+
+					for (let j = 0; j < headers.length; j++) {
+						obj[headers[j]] = currentline[j]
+					}
+					result.push(obj)
+				}
+				return result
+			}
 		},
 
-		created() 
+		async created() 
 		{
+			const res = await axios.get(this.googleScriptsUrl);
+
+			this.menu = this.CSVToJSON(res.data);
+
+			this.filteredMenu = this.menu;
+
+			console.log(this.menu);
+
 			this.loading = false;
 
 			window.addEventListener("keyup", (event) => 
