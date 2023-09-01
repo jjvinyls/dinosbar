@@ -14,13 +14,14 @@
 	import DPage from "@/defaults/pages/directions";
 
 	export default {
+		name: "PContact",
 		components: {
 			ContactInfo,
 			MapAndLocation,
 		},
 
 		data() 
-	{
+		{
 			return {
 				DPage: DPage,
 			};

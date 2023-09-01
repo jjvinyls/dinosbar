@@ -35,6 +35,7 @@
 
 <script>
 export default {
+	name: "CFoodImages",
 	props: {
 		images: {
 			type: Array,

@@ -66,6 +66,7 @@
 import companyInfo from "@/defaults/companyInfo";
 
 export default {
+	name: "CAbout",
 	data() 
 	{
 		return {

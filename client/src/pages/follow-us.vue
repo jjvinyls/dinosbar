@@ -8,7 +8,7 @@
 				</BCol>
 
 				<BCol cols="12">
-					<FoodImages
+					<CFoodImages
 						:images="[
 							'https://images2.imgbox.com/c4/10/iDBl4xhG_o.jpg',
 							'https://images2.imgbox.com/41/e3/CeI2oMmZ_o.jpg',
@@ -38,7 +38,7 @@
 </template>
 
 <script>
-	import FoodImages from "../components/home/FoodImages.vue";
+	import CFoodImages from "../components/home/CFoodImages.vue";
 	import SocialMediaPlug from "../components/SocialMediaPlug";
 	import companyInfo from "../defaults/companyInfo";
 	import pageLinks from "../defaults/pageLinks";
@@ -46,7 +46,7 @@
 	export default {
 		components: {
 			SocialMediaPlug,
-			FoodImages
+			CFoodImages
 		},
 
 		data() 

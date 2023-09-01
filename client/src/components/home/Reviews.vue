@@ -52,8 +52,10 @@
 	import VueTinySlider from "vue-tiny-slider";
 
 	export default {
-		data() 
-	{
+		name: "CReviews",
+
+		data()
+		{
 			return {
 				options: {
 					mouseDrag: true,

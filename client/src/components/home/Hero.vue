@@ -88,8 +88,10 @@
 			},
 		},
 
+		name: "CHero",
+
 		data() 
-	{
+		{
 			return {
 				companyInfo: companyInfo,
 

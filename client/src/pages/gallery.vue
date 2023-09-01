@@ -5,7 +5,7 @@
 			{{ pageData.title }}
 		</h1>
 
-		<FoodImages
+		<CFoodImages
 			:images="[
 				'https://images2.imgbox.com/c4/10/iDBl4xhG_o.jpg',
 				'https://images2.imgbox.com/41/e3/CeI2oMmZ_o.jpg',
@@ -36,20 +36,21 @@
 </template>
 
 <script>
-// [IMPORT] Personal //
-	import FoodImages from "../components/home/FoodImages.vue";
+	import CFoodImages from "../components/home/CFoodImages.vue";
 	import pageData from "@/defaults/pages/gallery";
 
 	export default {
+		name: "CGallery",
+
 		data() 
-	{
+		{
 			return {
 				pageData: pageData,
 			};
 		},
 
 		components: {
-			FoodImages
+			CFoodImages
 		}
 	};
 </script>

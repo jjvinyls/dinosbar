@@ -10,19 +10,19 @@
 		<RouterView />
 
 		<!-- Footer -->
-		<Footer />
+		<CFooter />
 	</div>
 </template>
 
 <script>
 // [IMPORT] Personal //
 	import NavBar from "@/components/nav/NavBar";
-	import Footer from "@/components/nav/Footer";
+	import CFooter from "@/components/nav/Footer";
 
 	export default {
 		components: {
 			NavBar,
-			Footer,
+			CFooter,
 		},
 
 		methods: {

@@ -162,8 +162,10 @@
 	import menu from "@/defaults/menu";
 
 	export default {
+		name: "CMenu",
+		
 		data() 
-	{
+		{
 			return {
 				loading: true,
 
@@ -180,7 +182,7 @@
 
 		methods: {
 			filterMenu(filter) 
-		{
+			{
 				this.loading = true;
 				this.currentTab = filter;
 				this.filteredMenu = [
@@ -207,20 +209,20 @@
 			},
 
 			viewProduct(i) 
-		{
+			{
 				this.viewingProduct = true;
 				this.viewingProductNumber = i;
 			},
 		},
 
 		created() 
-	{
+		{
 			this.loading = false;
 
 			window.addEventListener("keyup", (event) => 
-		{
-				if (event.key == "Escape") 
 			{
+				if (event.key == "Escape") 
+				{
 					this.viewingProduct = false;
 				}
 			});

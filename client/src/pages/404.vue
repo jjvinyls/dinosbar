@@ -9,3 +9,9 @@
 		</BRow>
 	</BContainer>
 </template>
+
+<script>
+	export default {
+		name: "CFof404"
+	}
+</script>

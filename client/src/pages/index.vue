@@ -1,6 +1,6 @@
 <template>
 	<div v-if="loading == false">
-		<Hero
+		<CHero
 			:slides="pageData.caraousel"
 			:maxHeight="1000"
 		/>
@@ -8,20 +8,20 @@
 		<!-- About Dinos Bar & Grill -->
 		<BContainer fluid>
 			<BContainer class="py-md-5">
-				<About />
+				<CAbout />
 			</BContainer>
 		</BContainer>
 
 		<!-- MENU -->
 		<BContainer fluid class="py-5 bg-white">
-			<Menu />
+			<CMenu />
 		</BContainer>
 
 		<!-- REVIEWS -->
-		<Reviews />
+		<CReviews />
 
 		<!-- FOOD IMAGES -->
-		<FoodImages
+		<CFoodImages
 			:images="[
 				'https://images2.imgbox.com/c4/10/iDBl4xhG_o.jpg',
 				'https://images2.imgbox.com/41/e3/CeI2oMmZ_o.jpg',
@@ -51,36 +51,36 @@
 		/>
 
 		<!-- MAP AND LOCATION -->
-		<MapAndLocation />
+		<CMapAndLocation />
 
 		<!-- INFO -->
-		<ContactInfo />
+		<CContactInfo />
 	</div>
 </template>
 
 <script>
 // [IMPORT] Personal //
-	import About from "@/components/About";
-	import ContactInfo from "@/components/ContactInfo";
-	import FoodImages from "@/components/home/FoodImages";
-	import Hero from "@/components/home/Hero";
-	import MapAndLocation from "@/components/MapAndLocation";
-	import Menu from "@/components/Menu";
-	import Reviews from "@/components/home/Reviews";
+	import CAbout from "@/components/About";
+	import CContactInfo from "@/components/ContactInfo";
+	import CFoodImages from "@/components/home/CFoodImages";
+	import CHero from "@/components/home/Hero";
+	import CMapAndLocation from "@/components/MapAndLocation";
+	import CMenu from "@/components/Menu";
+	import CReviews from "@/components/home/Reviews";
 	import pageData from "@/defaults/pages";
 	import router from "@/router";
 
 	export default {
-		name: "Home",
+		name: "PHome",
 
 		components: {
-			About,
-			ContactInfo,
-			FoodImages,
-			Hero,
-			MapAndLocation,
-			Menu,
-			Reviews,
+			CAbout,
+			CContactInfo,
+			CFoodImages,
+			CHero,
+			CMapAndLocation,
+			CMenu,
+			CReviews,
 		},
 
 		data() 

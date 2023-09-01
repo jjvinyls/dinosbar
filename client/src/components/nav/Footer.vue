@@ -69,12 +69,14 @@
 	import pageLinks from "../../defaults/pageLinks";
 
 	export default {
+		name: "CFooter",
+
 		components: {
 			SocialMediaPlug
 		},
 
 		data() 
-	{
+		{
 			return {
 				companyInfo: companyInfo,
 				pageLinks: pageLinks,
