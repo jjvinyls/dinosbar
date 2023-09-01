@@ -180,7 +180,7 @@ export default {
 		return {
 			loading: true,
 				
-			googleScriptsUrl: "https://script.googleusercontent.com/macros/echo?user_content_key=91MY3UpEMJv3gFKe0a0LMI7h2zWzyAwJkgzRsKtrCvxud9wNM8XCaKAV7xZ2zRcnySo-PMToPjmmwBhjdY4RRv3YG0ne8igqm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnFnNpRCRvnkr2CWoxk1N7CdsFzTy3zCyAIa-rJoMr9Bm2GRP8bP_PIo9Lioa_UXh9JxQoh38wTHqOy_ZzYLBPEtDgtH_Ar-55dz9Jw9Md8uu&lib=MUH7sYhu7AQ56WgSB711qRGnpgZ1Ms4TS",
+			googleScriptsUrl: "https://script.googleusercontent.com/macros/echo?user_content_key=gVvbgjAds9sSHwfFShTCRsURI3-9w0d-tTPyvMzp9r9H9kmdiXWnZpfUn6dDFjWrbhYuwTI97yH2APbMTMiW4Yh3QbILcTQQm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnNklDC-6rOqn-4OBn1tBqunP8pugit7XrqIDeTdBkA6kLBix9vBbkXj28zt9EVv9F-5MHrEgEr7gTjoqx-fPfPG9uMBotCcvr9z9Jw9Md8uu&lib=MUH7sYhu7AQ56WgSB711qRGnpgZ1Ms4TS",
 
 			currentTab: "all",
 				
@@ -231,16 +231,15 @@ export default {
 
 		splitCSVLine(line) 
 		{
-			const regex = /(?:,|\n|^)("(?:(?:"")*[^"]*)*"|[^",\n]*|(?:\n|$))/g;
-			const values = [
-			];
+			const regex = /(?:,|\n|^)('(?:(?:'')*[^']*)*'|[^',\n]*|(?:\n|$))/g;
+			const values = [];
 			let matches;
 			while ((matches = regex.exec(line)) !== null) 
 			{
 				let matched = matches[1];
-				if (matched && matched.startsWith("\"") && matched.endsWith("\"")) 
+				if (matched && matched.startsWith("'") && matched.endsWith("'")) 
 				{
-					matched = matched.substring(1, matched.length - 1).replace(/""/g, "\"");
+					matched = matched.substring(1, matched.length - 1).replace(/''/g, "'");
 				}
 				values.push(matched);
 			}
