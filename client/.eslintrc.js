@@ -214,6 +214,7 @@ module.exports = {
 				"before": true 
 			},
 		],
+		/*
 		"vue/max-len": [
 			"warn",
 			{
@@ -232,6 +233,7 @@ module.exports = {
 				"ignoreUrls": false
 			},
 		],
+		*/
 		"vue/max-attributes-per-line": [
 			"warn",
 			{
@@ -294,8 +296,8 @@ module.exports = {
 				"disallowFunctionalComponentFunction": false
 			},
 		],
-		"vue/require-name-property": 1,
 		/*
+		"vue/require-name-property": 1,
 		"vue/script-indent": [
 			"warn",
 			"tab",

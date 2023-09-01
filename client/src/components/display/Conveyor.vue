@@ -16,6 +16,7 @@
 import VueTinySlider from "vue-tiny-slider";
 
 export default {
+	name: "CConveyor",
 	props: {
 		images: {
 			type: Array,

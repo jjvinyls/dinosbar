@@ -21,6 +21,8 @@
 
 <script>
 export default {
+	name: "CParallax",
+
 	props: {
 		imgURL: {
 			required: true,
