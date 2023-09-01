@@ -31,40 +31,40 @@
 
 <script>
 // [IMPORT] //
-	import { FacebookIcon, InstagramIcon, YoutubeIcon } from "vue-feather-icons";
+import { FacebookIcon, InstagramIcon, YoutubeIcon } from "vue-feather-icons";
 
-	// [IMPORT] Personal //
-	import defaultData from "@/defaults/companyInfo";
+// [IMPORT] Personal //
+import defaultData from "@/defaults/companyInfo";
 
-	export default {
-		props: {
-			size: {
-				type: String,
-				default: "24",
-			},
-
-			variant: {
-				type: String,
-				default: "light"
-			},
-
-			strokeWidth: {
-				type: String,
-				default: "1.5"
-			},
+export default {
+	props: {
+		size: {
+			type: String,
+			default: "24",
 		},
 
-		components: {
-			FacebookIcon,
-			InstagramIcon,
-			YoutubeIcon
+		variant: {
+			type: String,
+			default: "light"
 		},
+
+		strokeWidth: {
+			type: String,
+			default: "1.5"
+		},
+	},
+
+	components: {
+		FacebookIcon,
+		InstagramIcon,
+		YoutubeIcon
+	},
 		
-		data() 
+	data() 
 	{
-			return {
-				defaultData: defaultData,
-			};
-		},
-	};
+		return {
+			defaultData: defaultData,
+		};
+	},
+};
 </script>

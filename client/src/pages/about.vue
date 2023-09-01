@@ -5,12 +5,12 @@
 </template>
 
 <script>
-	import About from "@/components/About";
+import About from "@/components/About";
 	
-	export default {
-		name: "PAbout",
-		components: {
-			About
-		},
-	};
+export default {
+	name: "PAbout",
+	components: {
+		About
+	},
+};
 </script>

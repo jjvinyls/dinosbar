@@ -64,23 +64,23 @@
 </template>
 
 <script>
-	import SocialMediaPlug from "../../components/SocialMediaPlug";
-	import companyInfo from "../../defaults/companyInfo";
-	import pageLinks from "../../defaults/pageLinks";
+import SocialMediaPlug from "../../components/SocialMediaPlug";
+import companyInfo from "../../defaults/companyInfo";
+import pageLinks from "../../defaults/pageLinks";
 
-	export default {
-		name: "CFooter",
+export default {
+	name: "CFooter",
 
-		components: {
-			SocialMediaPlug
-		},
+	components: {
+		SocialMediaPlug
+	},
 
-		data() 
-		{
-			return {
-				companyInfo: companyInfo,
-				pageLinks: pageLinks,
-			};
-		},
-	};
+	data() 
+	{
+		return {
+			companyInfo: companyInfo,
+			pageLinks: pageLinks,
+		};
+	},
+};
 </script>

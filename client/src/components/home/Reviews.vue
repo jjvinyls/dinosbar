@@ -49,50 +49,50 @@
 </template>
 
 <script>
-	import VueTinySlider from "vue-tiny-slider";
+import VueTinySlider from "vue-tiny-slider";
 
-	export default {
-		name: "CReviews",
+export default {
+	name: "CReviews",
 
-		data()
-		{
-			return {
-				options: {
-					mouseDrag: true,
-					loop: true,
-					controls: false,
-					swipeAngle: false,
-					nav: false,
-					autoplay: true,
-					autoplayButtonOutput: false,
-					items: 1,
-					autoplayTimeout: 5000,
-					speed: 1000,
+	data()
+	{
+		return {
+			options: {
+				mouseDrag: true,
+				loop: true,
+				controls: false,
+				swipeAngle: false,
+				nav: false,
+				autoplay: true,
+				autoplayButtonOutput: false,
+				items: 1,
+				autoplayTimeout: 5000,
+				speed: 1000,
+			},
+
+			reviews: [
+				{
+					name: "Vanessa C.",
+					img: require("../../assets/images/avtar-1.jpg"),
+					quote: "Love this place! Great atmosphere and delicious food.",
 				},
-
-				reviews: [
-					{
-						name: "Vanessa C.",
-						img: require("../../assets/images/avtar-1.jpg"),
-						quote: "Love this place! Great atmosphere and delicious food.",
-					},
-					{
-						name: "Lisa D.",
-						img: require("../../assets/images/avtar-2.png"),
-						quote: "Great food and beer selection.  The chef came out and recommended the ravioli.  They were excellent."
-					},
-					{
-						name: "Beatriz M.",
-						img: require("../../assets/images/avtar-3.png"),
-						quote: "Great place. Service was most accommodating and the food was delicious.",
-					},
-				],
-			};
-		},
-		components: {
-			VueTinySlider,
-		},
-	};
+				{
+					name: "Lisa D.",
+					img: require("../../assets/images/avtar-2.png"),
+					quote: "Great food and beer selection.  The chef came out and recommended the ravioli.  They were excellent."
+				},
+				{
+					name: "Beatriz M.",
+					img: require("../../assets/images/avtar-3.png"),
+					quote: "Great place. Service was most accommodating and the food was delicious.",
+				},
+			],
+		};
+	},
+	components: {
+		VueTinySlider,
+	},
+};
 </script>
 
 <style lang="scss" scoped>

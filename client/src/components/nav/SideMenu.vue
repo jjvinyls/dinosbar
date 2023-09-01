@@ -52,42 +52,42 @@
 
 <script>
 // [IMPORT] //
-	import { XIcon } from "vue-feather-icons";
+import { XIcon } from "vue-feather-icons";
 
-	// [IMPORT] Personal //
-	import SocialMediaPlug from "@/components/SocialMediaPlug";
-	import companyInfo from "@/defaults/companyInfo";
-	import buttons from "@/defaults/pageLinks";
-	import router from "@/router";
+// [IMPORT] Personal //
+import SocialMediaPlug from "@/components/SocialMediaPlug";
+import companyInfo from "@/defaults/companyInfo";
+import buttons from "@/defaults/pageLinks";
+import router from "@/router";
 
-	// [EXPORT] //
-	export default {
-		components: {
-			XIcon,
-			SocialMediaPlug,
-		},
+// [EXPORT] //
+export default {
+	components: {
+		XIcon,
+		SocialMediaPlug,
+	},
 
-		data() 
+	data() 
 	{
-			return {
-				companyInfo: companyInfo,
-				buttons: buttons,
-			};
+		return {
+			companyInfo: companyInfo,
+			buttons: buttons,
+		};
+	},
+
+	methods: {
+		closeMenu() 
+		{
+			this.$store.state.showMenu = !this.$store.state.showMenu;
 		},
 
-		methods: {
-			closeMenu() 
-		{
-				this.$store.state.showMenu = !this.$store.state.showMenu;
-			},
-
-			menuItemClicked(path) 
+		menuItemClicked(path) 
 		{	
-				router.push(path);
-				this.closeMenu();
-			}
+			router.push(path);
+			this.closeMenu();
 		}
-	};
+	}
+};
 </script>
 
 <style lang="scss" scoped>

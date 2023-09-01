@@ -126,61 +126,61 @@
 
 <script>
 // [IMPORT] //
-	import { MenuIcon, MapPinIcon } from "vue-feather-icons";
+import { MenuIcon, MapPinIcon } from "vue-feather-icons";
 
-	// [IMPORT] Personal //
-	import SideMenu from "@/components/nav/SideMenu";
-	import companyInfo from "@/defaults/companyInfo";
-	import buttons from "@/defaults/pageLinks";
-	import router from "@/router";
+// [IMPORT] Personal //
+import SideMenu from "@/components/nav/SideMenu";
+import companyInfo from "@/defaults/companyInfo";
+import buttons from "@/defaults/pageLinks";
+import router from "@/router";
 
-	export default {
-		components: {
-			MenuIcon,
-			MapPinIcon,
-			SideMenu,
-		},
+export default {
+	components: {
+		MenuIcon,
+		MapPinIcon,
+		SideMenu,
+	},
 
-		data() 
+	data() 
 	{
-			return {
-				titleClass: "",
-				navClass: "",
-				companyInfo: companyInfo,
-				buttons: buttons,
-				loggedIn: false,
-				decoded: {
+		return {
+			titleClass: "",
+			navClass: "",
+			companyInfo: companyInfo,
+			buttons: buttons,
+			loggedIn: false,
+			decoded: {
 			},
-				sideMenuOpen: false, router: router
-			};
-		},
+			sideMenuOpen: false, router: router
+		};
+	},
 
-		methods: {
-			toggle() 
+	methods: {
+		toggle() 
 		{
 			this.$store.state.showMenu = !this.$store.state.showMenu; 
 		},
 
-			handleScroll() 
+		handleScroll() 
 		{
-				if (window.scrollY > 0) 
+			if (window.scrollY > 0) 
 			{
-					this.navClass = "bg-shade-darker";
-					this.titleClass = "text-white";
-				}
-				else 
+				this.navClass = "bg-shade-darker";
+				this.titleClass = "text-white";
+			}
+			else 
 			{
-					this.navClass = "";
-					this.titleClass = "";
-				}
-			},
+				this.navClass = "";
+				this.titleClass = "";
+			}
 		},
+	},
 
-		created() 
+	created() 
 	{
-			window.addEventListener("scroll", this.handleScroll);
-		},
-	};
+		window.addEventListener("scroll", this.handleScroll);
+	},
+};
 </script>
 
 <style lang="scss" scoped>

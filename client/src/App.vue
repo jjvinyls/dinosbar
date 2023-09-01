@@ -16,35 +16,35 @@
 
 <script>
 // [IMPORT] Personal //
-	import NavBar from "@/components/nav/NavBar";
-	import CFooter from "@/components/nav/Footer";
+import NavBar from "@/components/nav/NavBar";
+import CFooter from "@/components/nav/Footer";
 
-	export default {
-		components: {
-			NavBar,
-			CFooter,
-		},
+export default {
+	components: {
+		NavBar,
+		CFooter,
+	},
 
-		methods: {
-			onResize() 
+	methods: {
+		onResize() 
 		{
-				this.$store.state.window.innerWidth = window.innerWidth;
-			},
+			this.$store.state.window.innerWidth = window.innerWidth;
 		},
+	},
 
-		mounted() 
+	mounted() 
 	{
-			this.$nextTick(() => 
+		this.$nextTick(() => 
 		{
-				window.addEventListener("resize", this.onResize);
-			});
-		},
+			window.addEventListener("resize", this.onResize);
+		});
+	},
 
-		beforeDestroy() 
+	beforeDestroy() 
 	{ 
-			window.removeEventListener("resize", this.onResize);
-		},
-	};
+		window.removeEventListener("resize", this.onResize);
+	},
+};
 </script>
 
 <style lang="scss">

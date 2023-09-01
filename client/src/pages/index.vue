@@ -60,65 +60,65 @@
 
 <script>
 // [IMPORT] Personal //
-	import CAbout from "@/components/About";
-	import CContactInfo from "@/components/ContactInfo";
-	import CFoodImages from "@/components/home/CFoodImages";
-	import CHero from "@/components/home/Hero";
-	import CMapAndLocation from "@/components/MapAndLocation";
-	import CMenu from "@/components/Menu";
-	import CReviews from "@/components/home/Reviews";
-	import pageData from "@/defaults/pages";
-	import router from "@/router";
+import CAbout from "@/components/About";
+import CContactInfo from "@/components/ContactInfo";
+import CFoodImages from "@/components/home/CFoodImages";
+import CHero from "@/components/home/Hero";
+import CMapAndLocation from "@/components/MapAndLocation";
+import CMenu from "@/components/Menu";
+import CReviews from "@/components/home/Reviews";
+import pageData from "@/defaults/pages";
+import router from "@/router";
 
-	export default {
-		name: "PHome",
+export default {
+	name: "PHome",
 
-		components: {
-			CAbout,
-			CContactInfo,
-			CFoodImages,
-			CHero,
-			CMapAndLocation,
-			CMenu,
-			CReviews,
-		},
+	components: {
+		CAbout,
+		CContactInfo,
+		CFoodImages,
+		CHero,
+		CMapAndLocation,
+		CMenu,
+		CReviews,
+	},
 
-		data() 
+	data() 
 	{
-			return {
-				loading: true,
+		return {
+			loading: true,
 
-				pageData: pageData,
-				reqData: {
+			pageData: pageData,
+			reqData: {
 			},
-				reikiTitle: "Reiki Title",
-				reikiDescription: "Reiki description goes here",
-				services: [
+			reikiTitle: "Reiki Title",
+			reikiDescription: "Reiki description goes here",
+			services: [
 			],
-			};
-		},
+		};
+	},
 
-		methods: {
-			redirectCompanyInfo() 
+	methods: {
+		redirectCompanyInfo() 
 		{
 			router.push({
 				name: "book" 
 			}); 
 		},
-		},
+	},
 
-		async created() 
+	async created() 
 	{
-			this.$store.state.isHomePage = true;
+		this.$store.state.isHomePage = true;
 
-			this.loading = false;
-		},
+		this.loading = false;
+	},
 
-		destroyed() 
+	destroyed() 
 	{
-			this.$store.state.isHomePage = false;
-		},
-	};
+		this.$store.state.isHomePage = false;
+	},
+};
 </script>
 
 <style lang="scss" scoped>

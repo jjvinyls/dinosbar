@@ -38,21 +38,21 @@
 
 <script>
 // [IMPORT] //
-	import { MapPinIcon } from "vue-feather-icons";
+import { MapPinIcon } from "vue-feather-icons";
 
-	// [IMPORT] Personal //
-	import companyInfo from "@/defaults/companyInfo";
+// [IMPORT] Personal //
+import companyInfo from "@/defaults/companyInfo";
 
-	export default {
-		components: {
-			MapPinIcon,
-		},
+export default {
+	components: {
+		MapPinIcon,
+	},
 
-		data() 
+	data() 
 	{
-			return {
-				companyInfo,
-			};
-		},
-	};
+		return {
+			companyInfo,
+		};
+	},
+};
 </script>

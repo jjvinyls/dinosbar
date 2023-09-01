@@ -9,22 +9,22 @@
 // [IMPORT] //
 
 // [IMPORT] Personal //
-	import ContactInfo from "@/components/ContactInfo";
-	import MapAndLocation from "@/components/MapAndLocation";
-	import DPage from "@/defaults/pages/directions";
+import ContactInfo from "@/components/ContactInfo";
+import MapAndLocation from "@/components/MapAndLocation";
+import DPage from "@/defaults/pages/directions";
 
-	export default {
-		name: "PContact",
-		components: {
-			ContactInfo,
-			MapAndLocation,
-		},
+export default {
+	name: "PContact",
+	components: {
+		ContactInfo,
+		MapAndLocation,
+	},
 
-		data() 
-		{
-			return {
-				DPage: DPage,
-			};
-		},
-	};
+	data() 
+	{
+		return {
+			DPage: DPage,
+		};
+	},
+};
 </script>

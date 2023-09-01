@@ -20,27 +20,27 @@
 </template>
 
 <script>
-	export default {
-		props: {
-			imgURL: {
-				required: true,
-			},
-
-			height: {
-				default: 400,
-			},
-
-			text: {
-				type: String,
-				default: "",
-			},
-
-			parallaxNumber: {
-				type: Number,
-				default: 2,
-			},
+export default {
+	props: {
+		imgURL: {
+			required: true,
 		},
-	};
+
+		height: {
+			default: 400,
+		},
+
+		text: {
+			type: String,
+			default: "",
+		},
+
+		parallaxNumber: {
+			type: Number,
+			default: 2,
+		},
+	},
+};
 </script>
 
 <style lang="scss" scoped>

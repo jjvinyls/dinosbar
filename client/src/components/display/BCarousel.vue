@@ -88,56 +88,56 @@
 </template>
 
 <script>
-	export default {
-		props: {
-			showContent: {
-				type: Boolean,
-				default: false,
-			},
-
-			slideObjs: {
-				type: Array,
-				required: true,
-			},
-
-			maxHeight: {
-				type: Number,
-				default: 400,
-			},
-
-			rellaxNumber: {
-				type: Number,
-				default: 0,
-			},
-
-			mainText: {
-				type: String,
-				default: "",
-			},
+export default {
+	props: {
+		showContent: {
+			type: Boolean,
+			default: false,
 		},
 
-		data() 
+		slideObjs: {
+			type: Array,
+			required: true,
+		},
+
+		maxHeight: {
+			type: Number,
+			default: 400,
+		},
+
+		rellaxNumber: {
+			type: Number,
+			default: 0,
+		},
+
+		mainText: {
+			type: String,
+			default: "",
+		},
+	},
+
+	data() 
 	{
-			return {
-				slide: 0,
-				sliding: null,
-				currentSlid: null,
-			};
+		return {
+			slide: 0,
+			sliding: null,
+			currentSlid: null,
+		};
+	},
+	methods: {
+		onSlideStart(slide) 
+		{
+			this.currentSlid = slide;
+			this.sliding = true;
 		},
-		methods: {
-			onSlideStart(slide) 
-		{
-				this.currentSlid = slide;
-				this.sliding = true;
-			},
 
-			onSlideEnd(slide) 
+		onSlideEnd(slide) 
 		{
-				this.currentSlid = slide;
-				this.sliding = false;
-			}
+			this.currentSlid = slide;
+			this.sliding = false;
 		}
-	};
+	}
+};
 </script>
 
 <style lang="scss" scoped>

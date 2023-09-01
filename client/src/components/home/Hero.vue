@@ -68,56 +68,56 @@
 
 <script>
 // [PERSONAL] //
-	import { MapPinIcon } from "vue-feather-icons";
-	import VueTinySlider from "vue-tiny-slider";
+import { MapPinIcon } from "vue-feather-icons";
+import VueTinySlider from "vue-tiny-slider";
 
-	// [IMPORT] Personal //
-	import companyInfo from "../../defaults/companyInfo";
-	import SocialMediaPlug from "../SocialMediaPlug";
+// [IMPORT] Personal //
+import companyInfo from "../../defaults/companyInfo";
+import SocialMediaPlug from "../SocialMediaPlug";
 
-	export default {
-		props: {
-			showContent: {
-				type: Boolean,
-				default: false,
+export default {
+	props: {
+		showContent: {
+			type: Boolean,
+			default: false,
+		},
+
+		slides: {
+			type: Array,
+			required: true,
+		},
+	},
+
+	name: "CHero",
+
+	data() 
+	{
+		return {
+			companyInfo: companyInfo,
+
+			mainText: "The Boys Are Back In Town!",
+
+			options: {
+				mouseDrag: true,
+				loop: true,
+				controls: false,
+				swipeAngle: false,
+				nav: false,
+				autoplay: true,
+				autoplayButtonOutput: false,
+				items: 1,
+				autoplayTimeout: 3000,
+				speed: 1000,
 			},
+		};
+	},
 
-			slides: {
-				type: Array,
-				required: true,
-			},
-		},
-
-		name: "CHero",
-
-		data() 
-		{
-			return {
-				companyInfo: companyInfo,
-
-				mainText: "The Boys Are Back In Town!",
-
-				options: {
-					mouseDrag: true,
-					loop: true,
-					controls: false,
-					swipeAngle: false,
-					nav: false,
-					autoplay: true,
-					autoplayButtonOutput: false,
-					items: 1,
-					autoplayTimeout: 3000,
-					speed: 1000,
-				},
-			};
-		},
-
-		components: {
-			MapPinIcon,
-			VueTinySlider,
-			SocialMediaPlug,
-		},
-	};
+	components: {
+		MapPinIcon,
+		VueTinySlider,
+		SocialMediaPlug,
+	},
+};
 </script>
 
 <style lang="scss" scoped>

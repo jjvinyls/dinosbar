@@ -6,14 +6,13 @@
 </template>
 
 <script>
-// [IMPORT] Personal //
-	import CMenu from "@/components/Menu";
+import CMenu from "@/components/Menu";
 
-	export default {
-		name: "PMenu",
+export default {
+	name: "PMenu",
 
-		components: {
-			CMenu,
-		},
-	};
+	components: {
+		CMenu,
+	},
+};
 </script>

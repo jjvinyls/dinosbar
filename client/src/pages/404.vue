@@ -11,7 +11,7 @@
 </template>
 
 <script>
-	export default {
-		name: "CFof404"
-	};
+export default {
+	name: "CFof404"
+};
 </script>

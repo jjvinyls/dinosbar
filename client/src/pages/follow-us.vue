@@ -38,23 +38,23 @@
 </template>
 
 <script>
-	import CFoodImages from "../components/home/CFoodImages.vue";
-	import SocialMediaPlug from "../components/SocialMediaPlug";
-	import companyInfo from "../defaults/companyInfo";
-	import pageLinks from "../defaults/pageLinks";
+import CFoodImages from "../components/home/CFoodImages.vue";
+import SocialMediaPlug from "../components/SocialMediaPlug";
+import companyInfo from "../defaults/companyInfo";
+import pageLinks from "../defaults/pageLinks";
 
-	export default {
-		components: {
-			SocialMediaPlug,
-			CFoodImages
-		},
+export default {
+	components: {
+		SocialMediaPlug,
+		CFoodImages
+	},
 
-		data() 
+	data() 
 	{
-			return {
-				companyInfo: companyInfo,
-				pageLinks: pageLinks,
-			};
-		},
-	};
+		return {
+			companyInfo: companyInfo,
+			pageLinks: pageLinks,
+		};
+	},
+};
 </script>

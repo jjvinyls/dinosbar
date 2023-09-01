@@ -36,21 +36,21 @@
 </template>
 
 <script>
-	import CFoodImages from "../components/home/CFoodImages.vue";
-	import pageData from "@/defaults/pages/gallery";
+import CFoodImages from "../components/home/CFoodImages.vue";
+import pageData from "@/defaults/pages/gallery";
 
-	export default {
-		name: "CGallery",
+export default {
+	name: "CGallery",
 
-		data() 
-		{
-			return {
-				pageData: pageData,
-			};
-		},
+	data() 
+	{
+		return {
+			pageData: pageData,
+		};
+	},
 
-		components: {
-			CFoodImages
-		}
-	};
+	components: {
+		CFoodImages
+	}
+};
 </script>

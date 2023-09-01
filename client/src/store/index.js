@@ -6,9 +6,9 @@ import Vuex from "vuex";
 // [USE] //
 Vue.use(Vuex);
 
-
 export default new Vuex.Store({
 	state: {
+		// eslint-disable-next-line
 		node_env: localStorage.node_env == "development" ? "development" : "production",
 
 		showIntro: true,
@@ -17,12 +17,8 @@ export default new Vuex.Store({
 		showMenu: false,
 
 		userLogged: false,
-		user_decoded: {
-		},
 
 		adminLogged: false,
-		admin_decoded: {
-		},
 
 		isHomePage: false,
 

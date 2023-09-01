@@ -169,6 +169,7 @@ module.exports = {
 				]
 			},
 		],
+		/*
 		"vue/html-indent": [
 			"warn",
 			"tab",
@@ -181,6 +182,7 @@ module.exports = {
 				]
 			},
 		],
+		*/
 		"vue/html-self-closing": [
 			"warn",
 			{
@@ -215,9 +217,9 @@ module.exports = {
 		"vue/max-len": [
 			"warn",
 			{
-				"code": 120,
-				"comments": 120,
-				"template": 120,
+				"code": 140,
+				"comments": 140,
+				"template": 140,
 				"tabWidth": 4,
 				"ignoreComments": false,
 				"ignoreHTMLAttributeValues": false,
@@ -293,6 +295,7 @@ module.exports = {
 			},
 		],
 		"vue/require-name-property": 1,
+		/*
 		"vue/script-indent": [
 			"warn",
 			"tab",
@@ -303,6 +306,7 @@ module.exports = {
 				]
 			},
 		],
+		*/
 		"vue/v-for-delimiter-style": [
 			"warn",
 			"in",

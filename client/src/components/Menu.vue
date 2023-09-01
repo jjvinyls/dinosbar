@@ -177,131 +177,131 @@
 </template>
 
 <script>
-	import axios from "axios";
+import axios from "axios";
 
-	export default {
-		name: "CMenu",
+export default {
+	name: "CMenu",
 		
-		data() 
+	data() 
+	{
+		return {
+			loading: true,
+				
+			googleScriptsUrl: "https://script.googleusercontent.com/macros/echo?user_content_key=91MY3UpEMJv3gFKe0a0LMI7h2zWzyAwJkgzRsKtrCvxud9wNM8XCaKAV7xZ2zRcnySo-PMToPjmmwBhjdY4RRv3YG0ne8igqm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnFnNpRCRvnkr2CWoxk1N7CdsFzTy3zCyAIa-rJoMr9Bm2GRP8bP_PIo9Lioa_UXh9JxQoh38wTHqOy_ZzYLBPEtDgtH_Ar-55dz9Jw9Md8uu&lib=MUH7sYhu7AQ56WgSB711qRGnpgZ1Ms4TS",
+
+			currentTab: "all",
+				
+			menu: [
+			],
+			filteredMenu: [
+			],
+			placeholderImg: require("../assets/images/logo.jpg"),
+
+			viewingProduct: false,
+			viewingProductNumber: 0,
+		};
+	},
+
+	methods: {
+		filterMenu(filter) 
 		{
-			return {
-				loading: true,
-				
-				googleScriptsUrl: "https://script.googleusercontent.com/macros/echo?user_content_key=91MY3UpEMJv3gFKe0a0LMI7h2zWzyAwJkgzRsKtrCvxud9wNM8XCaKAV7xZ2zRcnySo-PMToPjmmwBhjdY4RRv3YG0ne8igqm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnFnNpRCRvnkr2CWoxk1N7CdsFzTy3zCyAIa-rJoMr9Bm2GRP8bP_PIo9Lioa_UXh9JxQoh38wTHqOy_ZzYLBPEtDgtH_Ar-55dz9Jw9Md8uu&lib=MUH7sYhu7AQ56WgSB711qRGnpgZ1Ms4TS",
-
-				currentTab: "all",
-				
-				menu: [
-			],
-				filteredMenu: [
-			],
-				placeholderImg: require("../assets/images/logo.jpg"),
-
-				viewingProduct: false,
-				viewingProductNumber: 0,
-			};
-		},
-
-		methods: {
-			filterMenu(filter) 
-			{
-				this.loading = true;
-				this.currentTab = filter;
-				this.filteredMenu = [
+			this.loading = true;
+			this.currentTab = filter;
+			this.filteredMenu = [
 			];
 
-				if (filter == "all") 
+			if (filter == "all") 
 			{
 				this.filteredMenu = this.menu; 
 			}
-				else 
+			else 
 			{
-					for (let i = 0; i < this.menu.length; i++) 
+				for (let i = 0; i < this.menu.length; i++) 
 				{
-						const mi = this.menu[i];
+					const mi = this.menu[i];
 					
-						if (mi.category == filter) 
+					if (mi.category == filter) 
 					{
-							this.filteredMenu.push(mi);
-						}
+						this.filteredMenu.push(mi);
 					}
 				}
-
-				this.loading = false;
-			},
-
-			viewProduct(i) 
-			{
-				this.viewingProduct = true;
-				this.viewingProductNumber = i;
-			},
-
-			splitCSVLine(line) 
-		{
-				const regex = /(?:,|\n|^)("(?:(?:"")*[^"]*)*"|[^",\n]*|(?:\n|$))/g;
-				const values = [
-			];
-				let matches;
-				while ((matches = regex.exec(line)) !== null) 
-			{
-					let matched = matches[1];
-					if (matched && matched.startsWith("\"") && matched.endsWith("\"")) 
-				{
-						matched = matched.substring(1, matched.length - 1).replace(/""/g, "\"");
-					}
-					values.push(matched);
-				}
-				return values;
-			},
-
-			CSVToJSON(csv)
-			{
-				const lines = csv.split("\n");
-				const result = [
-			];
-				const headers = this.splitCSVLine(lines[0]);
-
-				for (let i = 1; i < lines.length; i++) 
-			{
-					if (!lines[i])
-						continue;
-					const obj = {
-				};
-					const currentline = this.splitCSVLine(lines[i]);
-
-					for (let j = 0; j < headers.length; j++) 
-				{
-						obj[headers[j]] = currentline[j];
-					}
-					result.push(obj);
-				}
-				return result;
 			}
-		},
-
-		async created() 
-		{
-			const res = await axios.get(this.googleScriptsUrl);
-
-			console.log(res.data);
-
-			this.menu = this.CSVToJSON(res.data);
-
-			this.filteredMenu = this.menu;
-
-			console.log(this.menu);
 
 			this.loading = false;
-
-			window.addEventListener("keyup", (event) => 
-			{
-				if (event.key == "Escape") 
-				{
-					this.viewingProduct = false;
-				}
-			});
 		},
-	};
+
+		viewProduct(i) 
+		{
+			this.viewingProduct = true;
+			this.viewingProductNumber = i;
+		},
+
+		splitCSVLine(line) 
+		{
+			const regex = /(?:,|\n|^)("(?:(?:"")*[^"]*)*"|[^",\n]*|(?:\n|$))/g;
+			const values = [
+			];
+			let matches;
+			while ((matches = regex.exec(line)) !== null) 
+			{
+				let matched = matches[1];
+				if (matched && matched.startsWith("\"") && matched.endsWith("\"")) 
+				{
+					matched = matched.substring(1, matched.length - 1).replace(/""/g, "\"");
+				}
+				values.push(matched);
+			}
+			return values;
+		},
+
+		CSVToJSON(csv)
+		{
+			const lines = csv.split("\n");
+			const result = [
+			];
+			const headers = this.splitCSVLine(lines[0]);
+
+			for (let i = 1; i < lines.length; i++) 
+			{
+				if (!lines[i])
+					continue;
+				const obj = {
+				};
+				const currentline = this.splitCSVLine(lines[i]);
+
+				for (let j = 0; j < headers.length; j++) 
+				{
+					obj[headers[j]] = currentline[j];
+				}
+				result.push(obj);
+			}
+			return result;
+		}
+	},
+
+	async created() 
+	{
+		const res = await axios.get(this.googleScriptsUrl);
+
+		console.log(res.data);
+
+		this.menu = this.CSVToJSON(res.data);
+
+		this.filteredMenu = this.menu;
+
+		console.log(this.menu);
+
+		this.loading = false;
+
+		window.addEventListener("keyup", (event) => 
+		{
+			if (event.key == "Escape") 
+			{
+				this.viewingProduct = false;
+			}
+		});
+	},
+};
 </script>
 
 <style lang="scss" scoped>
