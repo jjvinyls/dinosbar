@@ -101,7 +101,7 @@ module.exports = {
 		"no-debugger": process.env.NODE_ENV === "production" ? "warn" : "off",
 		"no-duplicate-imports": "warn",
 		"no-mixed-spaces-and-tabs": process.env.NODE_ENV === "production" ? "warn" : "off",
-		"no-trailing-spaces": process.env.NODE_ENV === "production" ? "error" : "off",
+		"no-trailing-spaces": process.env.NODE_ENV === "production" ? "warn" : "off",
 		"object-curly-newline": [
 			"warn",
 			{
