@@ -2,7 +2,7 @@
 	<div class="w-100 bg-dark text-secondary">
 		<BContainer>
 			<BRow class="pt-4">
-				<BCol cols="12" class="text-center" data-aos="fade">
+				<BCol cols="12" class="text-center" data-aos="fade" data-aos-once="true">
 					<RouterLink to="/" class="text-decoration-none">
 						<h4 class="m-0 text-primary">
 							{{ companyInfo.companyName }}
