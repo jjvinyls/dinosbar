@@ -1,5 +1,5 @@
 <template>
-	<BContainer class="my-5" data-aos="fade-up">
+	<BContainer class="my-5" data-aos="fade-up" data-aos-once="true">
 		<About />
 	</BContainer>
 </template>

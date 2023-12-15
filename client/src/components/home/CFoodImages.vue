@@ -18,7 +18,7 @@
 				cols="12" sm="6" md="6" lg="4" xl="3"
 				class="m-0 p-0"
 			>
-				<div class="img-holder mx-3 my-4 shadow" data-aos="fade-up">
+				<div class="img-holder mx-3 my-4 shadow" data-aos="fade-up" data-aos-once="true">
 					<img
 						:src="img"
 						v-lazy="img"

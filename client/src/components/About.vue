@@ -23,7 +23,7 @@
 			<p
 				v-html="companyInfo.aboutHTML"
 				class="text-center mb-4 h5 text-dark"
-				data-aos="fade-up"
+				data-aos="fade-up" data-aos-once="true"
 			></p>
 
 			<!-- SIGN -->
