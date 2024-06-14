@@ -64,15 +64,8 @@ export default {
 	{
 		return {
 			loading: true,
-
 			common: common,
 			pageData: pageData,
-			reqData: {
-			},
-			reikiTitle: "Reiki Title",
-			reikiDescription: "Reiki description goes here",
-			services: [
-			],
 		};
 	},
 
